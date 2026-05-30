@@ -4,6 +4,10 @@ import { useEffect } from "react";
 
 export function NeonHover() {
   useEffect(() => {
+    if (window.matchMedia("(hover: none)").matches) {
+      return;
+    }
+
     const cards = Array.from(document.querySelectorAll<HTMLElement>(".neon-card"));
 
     const cleanups = cards.map((card) => {

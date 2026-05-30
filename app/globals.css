@@ -454,12 +454,50 @@ a {
 
 @media (max-width: 640px) {
   .emerald-portal {
-    top: 43%;
-    width: 145vw;
+    top: 42%;
+    width: 118vw;
+    opacity: 0.58;
   }
 
   .portal-ray {
-    height: 1px;
+    display: none;
+  }
+
+  .emerald-portal::before {
+    inset: 16%;
+    animation-duration: 34s;
+    filter:
+      drop-shadow(0 0 12px rgba(74, 222, 128, 0.5))
+      drop-shadow(0 0 34px rgba(34, 197, 94, 0.28));
+  }
+
+  .emerald-portal::after {
+    inset: 25%;
+    animation-duration: 7s;
+    box-shadow:
+      0 0 24px rgba(74, 222, 128, 0.35),
+      inset 0 0 28px rgba(132, 204, 22, 0.14);
+  }
+
+  .portal-core,
+  .portal-aura {
+    filter: blur(7px);
+  }
+
+  .neon-card:hover,
+  .neon-action:hover,
+  .neon-soft-action:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
   }
 }
 
