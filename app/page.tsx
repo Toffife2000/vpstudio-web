@@ -30,10 +30,11 @@ import {
   Zap
 } from "lucide-react";
 import { NeonHover } from "./neon-hover";
+import { ProjectConfigurator } from "./project-configurator";
 
 const navItems = [
   { label: "Služby", href: "#sluzby" },
-  { label: "Brief", href: "#brief" },
+  { label: "Konfigurátor", href: "#konfigurator" },
   { label: "Proces", href: "#proces" },
   { label: "Kontakt", href: "#kontakt" }
 ];
@@ -216,10 +217,10 @@ export default function Home() {
 
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
             <a
-              href="#kontakt"
-              className="neon-action inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-lime-300 via-emerald-300 to-teal-400 px-7 text-base font-black text-[#03110a] shadow-[0_0_46px_rgba(74,222,128,0.34)] transition hover:scale-[1.02]"
+              href="#konfigurator"
+              className="rgb-action inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl px-7 text-base font-black text-white transition hover:scale-[1.02]"
             >
-              Poslať nezáväzný brief
+              Spustiť konfigurátor
               <ArrowRight className="h-5 w-5" />
             </a>
             <a
@@ -261,6 +262,8 @@ export default function Home() {
           })}
         </div>
       </section>
+
+      <ProjectConfigurator />
 
       <section id="sluzby" className="relative px-4 py-24 sm:px-6">
         <div className="mx-auto max-w-7xl text-center">
