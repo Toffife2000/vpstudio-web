@@ -33,7 +33,6 @@ import { NeonHover } from "./neon-hover";
 import { MobileMenu } from "./mobile-menu";
 import { ProjectConfigurator } from "./project-configurator";
 import { HeroNeonSystem } from "./hero-neon-system";
-import { IntroReveal } from "./intro-reveal";
 
 const navItems = [
   { label: "Služby", href: "#sluzby" },
@@ -174,25 +173,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function IntroShell() {
-  return (
-    <div className="intro-reveal intro-shell" aria-hidden="true">
-      <div className="intro-vignette" />
-      <div className="intro-logo-wrap">
-        <div className="intro-logo-orbit" />
-        <div className="intro-logo">
-          <span className="intro-ring" />
-          <span className="intro-cut" />
-          <span className="intro-v">V</span>
-          <span className="intro-p">P</span>
-        </div>
-        <div className="intro-brand">VP Studio</div>
-        <div className="intro-line" />
-      </div>
-    </div>
-  );
-}
-
 export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -221,8 +201,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#020805] text-white">
-      <IntroShell />
-      <IntroReveal />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
