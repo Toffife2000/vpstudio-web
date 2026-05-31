@@ -32,6 +32,7 @@ import {
 import { NeonHover } from "./neon-hover";
 import { MobileMenu } from "./mobile-menu";
 import { ProjectConfigurator } from "./project-configurator";
+import { HeroNeonSystem } from "./hero-neon-system";
 
 const navItems = [
   { label: "Služby", href: "#sluzby" },
@@ -41,10 +42,34 @@ const navItems = [
 ];
 
 const stats = [
-  { value: "360°", label: "web, e-shop, grafika", icon: Rocket, glow: "neon-cyan" },
-  { value: "SEO", label: "Search Console a technika", icon: Search, glow: "neon-lime" },
-  { value: "MER", label: "Google Merchant setup", icon: Globe2, glow: "neon-amber" },
-  { value: "PS", label: "Photoshop a foto edit", icon: Brush, glow: "neon-violet" }
+  {
+    value: "WEB",
+    label: "Prémiová prezentácia",
+    detail: "Rýchly web s vlastnou atmosférou a jasným cieľom.",
+    icon: Rocket,
+    glow: "neon-cyan"
+  },
+  {
+    value: "SHOP",
+    label: "E-shop systém",
+    detail: "Produkty, kategórie, dôvera, nákup a meranie.",
+    icon: MousePointer2,
+    glow: "neon-lime"
+  },
+  {
+    value: "SEO",
+    label: "Google výkon",
+    detail: "Search Console, Merchant, indexácia a technika.",
+    icon: Search,
+    glow: "neon-amber"
+  },
+  {
+    value: "DESIGN",
+    label: "Grafický engine",
+    detail: "Photoshop, produktové fotky, bannery a vizuály.",
+    icon: Brush,
+    glow: "neon-violet"
+  }
 ];
 
 const services = [
@@ -177,14 +202,10 @@ export default function Home() {
         </div>
       </header>
 
-      <section id="top" className="relative px-4 pb-24 pt-36 sm:px-6 lg:min-h-screen lg:pt-44">
-        <div className="emerald-portal" aria-hidden="true">
-          <span className="portal-core" />
-          <span className="portal-aura" />
-          {Array.from({ length: 24 }).map((_, index) => (
-            <span key={index} className="portal-ray" style={{ transform: `rotate(${index * 15}deg)` }} />
-          ))}
-        </div>
+      <section id="top" className="relative overflow-hidden px-4 pb-24 pt-36 sm:px-6 lg:min-h-screen lg:pt-44">
+        <HeroNeonSystem />
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-40 bg-gradient-to-b from-[#020805] via-[#020805]/80 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-48 bg-gradient-to-t from-[#020805] via-[#020805]/68 to-transparent" />
 
         <div className="absolute left-[7%] top-[30%] hidden rounded-3xl border border-emerald-300/15 bg-emerald-300/[0.035] p-4 text-emerald-200 shadow-[0_0_40px_rgba(16,185,129,0.18)] lg:block">
           <Code2 className="h-8 w-8" />
@@ -249,16 +270,20 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto mt-20 grid max-w-4xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="relative z-10 mx-auto mt-20 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat) => {
             const Icon = stat.icon;
             return (
-              <div key={stat.label} className={`neon-card ${stat.glow} rounded-3xl border border-emerald-300/13 bg-white/[0.035] p-6 text-center backdrop-blur transition hover:border-emerald-300/35 hover:bg-emerald-300/[0.045]`}>
-                <div className="neon-icon mx-auto flex h-14 w-14 items-center justify-center rounded-2xl shadow-[0_0_28px_rgba(74,222,128,0.25)]">
+              <div key={stat.label} className={`neon-card ${stat.glow} group rounded-3xl border border-emerald-300/13 bg-[#04100b]/58 p-6 text-left shadow-[0_22px_80px_rgba(0,0,0,0.26)] backdrop-blur-xl transition hover:border-emerald-300/35 hover:bg-emerald-300/[0.045]`}>
+                <div className="neon-icon flex h-14 w-14 items-center justify-center rounded-2xl shadow-[0_0_28px_rgba(74,222,128,0.25)]">
                   <Icon className="h-7 w-7 text-[#03110a]" />
                 </div>
                 <p className="mt-5 text-4xl font-black tracking-tight">{stat.value}</p>
-                <p className="mt-2 text-sm font-bold text-zinc-400">{stat.label}</p>
+                <p className="mt-2 text-sm font-black uppercase tracking-[0.12em] text-emerald-200">{stat.label}</p>
+                <p className="mt-3 min-h-16 text-sm font-semibold leading-6 text-zinc-400">{stat.detail}</p>
+                <div className="mt-5 h-px overflow-hidden bg-white/10">
+                  <span className="block h-full w-2/3 bg-gradient-to-r from-lime-300 via-emerald-300 to-transparent transition-all duration-500 group-hover:w-full" />
+                </div>
               </div>
             );
           })}
