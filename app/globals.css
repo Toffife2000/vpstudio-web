@@ -36,28 +36,28 @@ a {
 @keyframes intro-logo-breathe {
   0% {
     opacity: 0;
-    transform: scale(0.18);
-    filter: blur(24px) brightness(0.25);
+    transform: scale(0.06) translateZ(0);
+    filter: blur(28px) brightness(0.18);
   }
 
-  18% {
-    opacity: 1;
-    transform: scale(0.56);
-    filter: blur(8px) brightness(0.86);
+  16% {
+    opacity: 0.9;
+    transform: scale(0.28) translateZ(0);
+    filter: blur(10px) brightness(0.75);
   }
 
-  46% {
+  44% {
     opacity: 1;
-    transform: scale(0.92);
+    transform: scale(0.78) translateZ(0);
     filter:
       blur(0)
       brightness(1.12)
       drop-shadow(0 0 28px rgba(190, 242, 100, 0.65));
   }
 
-  70% {
+  72% {
     opacity: 1;
-    transform: scale(1.08);
+    transform: scale(1.16) translateZ(0);
     filter:
       blur(0)
       brightness(1.38)
@@ -66,7 +66,7 @@ a {
 
   100% {
     opacity: 1;
-    transform: scale(1.02);
+    transform: scale(1.05) translateZ(0);
     filter:
       blur(0)
       brightness(1.15)
@@ -102,16 +102,25 @@ a {
   0% {
     opacity: 1;
     background-color: #000;
+    clip-path: circle(140% at 50% 50%);
   }
 
-  62% {
+  42% {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.92);
+    background-color: rgba(0, 0, 0, 0.86);
+    clip-path: circle(64% at 50% 50%);
+  }
+
+  72% {
+    opacity: 0.92;
+    background-color: rgba(0, 0, 0, 0.42);
+    clip-path: circle(22% at 50% 50%);
   }
 
   100% {
     opacity: 0;
     background-color: rgba(0, 0, 0, 0);
+    clip-path: circle(0% at 50% 50%);
     pointer-events: none;
   }
 }
@@ -128,16 +137,16 @@ a {
 
   32% {
     opacity: 1;
-    transform: scale(1.42);
+    transform: scale(1.7);
     filter:
       blur(0)
       brightness(1.55)
       drop-shadow(0 0 70px rgba(190, 242, 100, 1));
   }
 
-  70% {
+  62% {
     opacity: 1;
-    transform: scale(5.2);
+    transform: scale(7.4);
     filter:
       blur(1px)
       brightness(1.8)
@@ -146,10 +155,10 @@ a {
 
   100% {
     opacity: 0;
-    transform: scale(13);
+    transform: scale(18);
     filter:
-      blur(8px)
-      brightness(2.2)
+      blur(12px)
+      brightness(2.6)
       drop-shadow(0 0 180px rgba(190, 242, 100, 1));
   }
 }
@@ -176,6 +185,60 @@ a {
   }
 }
 
+@keyframes intro-shard-idle {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: translate(-50%, -50%) translate3d(calc(var(--x) * 0.08), calc(var(--y) * 0.08), 0) rotate(var(--r)) scale(calc(var(--s) * 0.72));
+  }
+
+  45% {
+    opacity: 0.62;
+    transform: translate(-50%, -50%) translate3d(calc(var(--x) * 0.13), calc(var(--y) * 0.13), 0) rotate(calc(var(--r) * -0.38)) scale(var(--s));
+  }
+}
+
+@keyframes intro-shard-break {
+  0% {
+    opacity: 0.72;
+    transform: translate(-50%, -50%) translate3d(calc(var(--x) * 0.14), calc(var(--y) * 0.14), 0) rotate(var(--r)) scale(var(--s));
+    filter: blur(0) brightness(1.4);
+  }
+
+  38% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate3d(calc(var(--x) * 0.34), calc(var(--y) * 0.34), 0) rotate(calc(var(--r) * 2.4)) scale(calc(var(--s) * 1.15));
+    filter: blur(0) brightness(2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate3d(calc(var(--x) * 1.34), calc(var(--y) * 1.34), 0) rotate(calc(var(--r) * 7)) scale(calc(var(--s) * 0.48));
+    filter: blur(6px) brightness(1.8);
+  }
+}
+
+@keyframes intro-flash-crack {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.55) rotate(0deg);
+  }
+
+  36% {
+    opacity: 0;
+  }
+
+  52% {
+    opacity: 0.98;
+    transform: translate(-50%, -50%) scale(1.05) rotate(4deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.45) rotate(-8deg);
+  }
+}
+
 @keyframes intro-mist {
   0% {
     opacity: 0;
@@ -199,13 +262,15 @@ a {
   display: grid;
   place-items: center;
   overflow: hidden;
+  perspective: 1200px;
   background:
-    radial-gradient(circle at 50% 50%, rgba(74, 222, 128, 0.06), transparent 32%),
+    radial-gradient(circle at 50% 50%, rgba(190, 242, 100, 0.08), transparent 22%),
+    radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.045), transparent 44%),
     #000;
 }
 
 .intro-reveal-out {
-  animation: intro-open 1.7s cubic-bezier(0.82, 0, 0.18, 1) forwards;
+  animation: intro-open 2.2s cubic-bezier(0.82, 0, 0.18, 1) forwards;
 }
 
 .intro-reveal-out::before {
@@ -221,11 +286,11 @@ a {
     radial-gradient(circle, rgba(236, 253, 245, 0.95) 0%, rgba(190, 242, 100, 0.42) 18%, rgba(74, 222, 128, 0.16) 38%, transparent 68%),
     conic-gradient(from 0deg, rgba(190, 242, 100, 0.9), rgba(34, 211, 238, 0.32), rgba(74, 222, 128, 0.62), rgba(190, 242, 100, 0.9));
   filter: blur(16px);
-  animation: intro-portal-wash 1.7s cubic-bezier(0.82, 0, 0.18, 1) forwards;
+  animation: intro-portal-wash 2.2s cubic-bezier(0.82, 0, 0.18, 1) forwards;
 }
 
 .intro-reveal-out .intro-logo-wrap {
-  animation: intro-logo-expand 1.7s cubic-bezier(0.82, 0, 0.18, 1) forwards;
+  animation: intro-logo-expand 2.2s cubic-bezier(0.82, 0, 0.18, 1) forwards;
 }
 
 .intro-vignette {
@@ -269,12 +334,76 @@ a {
   animation-direction: reverse;
 }
 
+.intro-shatter {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.intro-shatter::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(70vw, 760px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  background:
+    linear-gradient(34deg, transparent 0 45%, rgba(236, 253, 245, 0.92) 45.3% 45.8%, transparent 46.1%),
+    linear-gradient(112deg, transparent 0 38%, rgba(190, 242, 100, 0.82) 38.2% 38.7%, transparent 39%),
+    linear-gradient(156deg, transparent 0 54%, rgba(34, 211, 238, 0.62) 54.2% 54.7%, transparent 55%),
+    linear-gradient(72deg, transparent 0 58%, rgba(236, 253, 245, 0.72) 58.1% 58.5%, transparent 58.9%);
+  filter:
+    drop-shadow(0 0 16px rgba(190, 242, 100, 0.9))
+    drop-shadow(0 0 34px rgba(34, 211, 238, 0.28));
+}
+
+.intro-reveal-out .intro-shatter::before {
+  animation: intro-flash-crack 0.9s ease-out forwards;
+}
+
+.intro-shard {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(3.8rem, 7.2vw, 8.8rem);
+  aspect-ratio: 1.45;
+  border: 1px solid rgba(217, 249, 157, 0.42);
+  clip-path: polygon(8% 16%, 82% 4%, 100% 48%, 68% 100%, 16% 78%);
+  background:
+    linear-gradient(135deg, rgba(236, 253, 245, 0.18), rgba(190, 242, 100, 0.04) 42%, rgba(34, 211, 238, 0.11)),
+    radial-gradient(circle at 34% 22%, rgba(236, 253, 245, 0.36), transparent 34%);
+  box-shadow:
+    inset 0 0 22px rgba(236, 253, 245, 0.06),
+    0 0 28px rgba(190, 242, 100, 0.14);
+  transform: translate(-50%, -50%) translate3d(calc(var(--x) * 0.08), calc(var(--y) * 0.08), 0) rotate(var(--r)) scale(var(--s));
+  animation: intro-shard-idle 2.4s ease-in-out var(--d) infinite;
+  backdrop-filter: blur(8px);
+}
+
+.intro-shard:nth-child(3n) {
+  border-color: rgba(34, 211, 238, 0.34);
+  clip-path: polygon(16% 0%, 100% 22%, 78% 86%, 28% 100%, 0% 38%);
+}
+
+.intro-shard:nth-child(4n) {
+  width: clamp(2.8rem, 5.4vw, 7rem);
+  clip-path: polygon(0% 32%, 46% 0%, 100% 18%, 82% 100%, 18% 72%);
+}
+
+.intro-reveal-out .intro-shard {
+  animation: intro-shard-break 1.5s cubic-bezier(0.18, 0.76, 0.2, 1) var(--d) forwards;
+}
+
 .intro-logo-wrap {
   position: relative;
+  z-index: 4;
   display: grid;
   place-items: center;
   gap: 1.25rem;
-  animation: intro-logo-breathe 2.55s cubic-bezier(0.2, 0.8, 0.15, 1) both;
+  animation: intro-logo-breathe 3.35s cubic-bezier(0.2, 0.8, 0.15, 1) both;
 }
 
 .intro-logo-orbit {
@@ -365,7 +494,7 @@ a {
   animation: intro-line 2.65s ease-in-out both;
 }
 
-@media (max-width: 899px), (hover: none) {
+@media (max-width: 899px) {
   .intro-reveal,
   .intro-shell {
     display: none !important;
