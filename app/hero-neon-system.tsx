@@ -178,6 +178,9 @@ export function HeroNeonSystem() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    const shouldRun = window.matchMedia("(min-width: 900px) and (hover: hover)").matches;
+    if (!shouldRun) return;
+
     let frame = 0;
     let width = 0;
     let height = 0;
@@ -269,7 +272,7 @@ export function HeroNeonSystem() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 z-[1] h-full w-full opacity-100 mix-blend-screen"
+      className="hero-neon-canvas pointer-events-none absolute inset-0 z-[1] h-full w-full opacity-100 mix-blend-screen"
     />
   );
 }

@@ -240,6 +240,16 @@ a {
   opacity: 0.88;
 }
 
+.hero-neon-canvas {
+  display: none;
+}
+
+@media (min-width: 900px) and (hover: hover) {
+  .hero-neon-canvas {
+    display: block;
+  }
+}
+
 .intro-vignette::before,
 .intro-vignette::after {
   content: "";

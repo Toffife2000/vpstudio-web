@@ -1,63 +1,36 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export function IntroReveal() {
-  const [visible, setVisible] = useState(false);
-  const [leaving, setLeaving] = useState(false);
-
   useEffect(() => {
+    const shell = document.querySelector<HTMLElement>(".intro-shell");
     const isDesktop = window.matchMedia("(min-width: 900px) and (hover: hover)").matches;
+
     if (!isDesktop) {
-      setVisible(false);
-      document.querySelector(".intro-shell")?.remove();
+      shell?.remove();
       document.documentElement.classList.remove("vp-intro-lock");
-      sessionStorage.setItem("vp-intro-seen", "mobile-skip");
       return;
     }
 
     document.documentElement.classList.add("vp-intro-lock");
-    const seen = sessionStorage.getItem("vp-intro-seen");
-    if (seen) {
-      setVisible(false);
-      document.querySelector(".intro-shell")?.remove();
-      document.documentElement.classList.remove("vp-intro-lock");
-      return;
-    }
+    shell?.classList.add("intro-live");
 
-    setVisible(true);
-    document.querySelector(".intro-shell")?.remove();
-    sessionStorage.setItem("vp-intro-seen", "true");
-
-    const leaveTimer = window.setTimeout(() => setLeaving(true), 2600);
+    const leaveTimer = window.setTimeout(() => {
+      shell?.classList.add("intro-reveal-out");
+    }, 2500);
     const hideTimer = window.setTimeout(() => {
-      setVisible(false);
+      shell?.remove();
       document.documentElement.classList.remove("vp-intro-lock");
-    }, 4300);
+    }, 4200);
 
     return () => {
       window.clearTimeout(leaveTimer);
       window.clearTimeout(hideTimer);
+      shell?.remove();
       document.documentElement.classList.remove("vp-intro-lock");
     };
   }, []);
 
-  if (!visible) return null;
-
-  return (
-    <div className={`intro-reveal ${leaving ? "intro-reveal-out" : ""}`} aria-hidden="true">
-      <div className="intro-vignette" />
-      <div className="intro-logo-wrap">
-        <div className="intro-logo-orbit" />
-        <div className="intro-logo">
-          <span className="intro-ring" />
-          <span className="intro-cut" />
-          <span className="intro-v">V</span>
-          <span className="intro-p">P</span>
-        </div>
-        <div className="intro-brand">VP Studio</div>
-        <div className="intro-line" />
-      </div>
-    </div>
-  );
+  return null;
 }
