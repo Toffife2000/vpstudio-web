@@ -312,18 +312,18 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto mt-20 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="relative z-10 mx-auto mt-14 grid max-w-5xl grid-cols-4 gap-2 sm:mt-20 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
           {stats.map((stat) => {
             const Icon = stat.icon;
             return (
-              <div key={stat.label} className={`neon-card ${stat.glow} group rounded-3xl border border-emerald-300/13 bg-[#04100b]/58 p-6 text-left shadow-[0_22px_80px_rgba(0,0,0,0.26)] backdrop-blur-xl transition hover:border-emerald-300/35 hover:bg-emerald-300/[0.045]`}>
-                <div className="neon-icon flex h-14 w-14 items-center justify-center rounded-2xl shadow-[0_0_28px_rgba(74,222,128,0.25)]">
-                  <Icon className="h-7 w-7 text-[#03110a]" />
+              <div key={stat.label} className={`neon-card ${stat.glow} group rounded-2xl border border-emerald-300/13 bg-[#04100b]/58 p-2 text-center shadow-[0_22px_80px_rgba(0,0,0,0.26)] backdrop-blur-xl transition hover:border-emerald-300/35 hover:bg-emerald-300/[0.045] sm:rounded-3xl sm:p-6 sm:text-left`}>
+                <div className="neon-icon mx-auto flex h-10 w-10 items-center justify-center rounded-xl shadow-[0_0_28px_rgba(74,222,128,0.25)] sm:mx-0 sm:h-14 sm:w-14 sm:rounded-2xl">
+                  <Icon className="h-5 w-5 text-[#03110a] sm:h-7 sm:w-7" />
                 </div>
-                <p className="mt-5 text-4xl font-black tracking-tight">{stat.value}</p>
-                <p className="mt-2 text-sm font-black uppercase tracking-[0.12em] text-emerald-200">{stat.label}</p>
-                <p className="mt-3 min-h-16 text-sm font-semibold leading-6 text-zinc-400">{stat.detail}</p>
-                <div className="mt-5 h-px overflow-hidden bg-white/10">
+                <p className="mt-3 text-base font-black tracking-tight sm:mt-5 sm:text-4xl">{stat.value}</p>
+                <p className="mt-1 hidden text-sm font-black uppercase tracking-[0.12em] text-emerald-200 sm:block">{stat.label}</p>
+                <p className="mt-3 hidden min-h-16 text-sm font-semibold leading-6 text-zinc-400 sm:block">{stat.detail}</p>
+                <div className="mt-3 h-px overflow-hidden bg-white/10 sm:mt-5">
                   <span className="block h-full w-2/3 bg-gradient-to-r from-lime-300 via-emerald-300 to-transparent transition-all duration-500 group-hover:w-full" />
                 </div>
               </div>
