@@ -20,6 +20,10 @@ body {
   color: #ffffff;
 }
 
+.vp-intro-lock body {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
 }
@@ -33,18 +37,18 @@ a {
   0% {
     opacity: 0;
     transform: scale(0.62);
-    filter: blur(12px) brightness(0.5);
+    filter: blur(18px) brightness(0.35);
   }
 
   24% {
     opacity: 1;
-    transform: scale(1);
-    filter: blur(0) brightness(1.1);
+    transform: scale(0.96);
+    filter: blur(0) brightness(1.08);
   }
 
   58% {
     opacity: 1;
-    transform: scale(1.08);
+    transform: scale(1.04);
     filter:
       blur(0)
       brightness(1.35)
@@ -97,8 +101,24 @@ a {
   }
 
   100% {
-    clip-path: circle(150% at 50% 50%);
+    clip-path: circle(145% at 50% 50%);
     opacity: 0;
+  }
+}
+
+@keyframes intro-mist {
+  0% {
+    opacity: 0;
+    transform: translate3d(-4%, 4%, 0) scale(0.92) rotate(0deg);
+  }
+
+  40% {
+    opacity: 0.72;
+  }
+
+  100% {
+    opacity: 0.24;
+    transform: translate3d(4%, -3%, 0) scale(1.15) rotate(14deg);
   }
 }
 
@@ -110,7 +130,7 @@ a {
   place-items: center;
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 50%, rgba(74, 222, 128, 0.08), transparent 34%),
+    radial-gradient(circle at 50% 50%, rgba(74, 222, 128, 0.06), transparent 32%),
     #000;
 }
 
@@ -126,12 +146,31 @@ a {
     linear-gradient(120deg, rgba(190, 242, 100, 0.05), transparent 42%, rgba(34, 211, 238, 0.05));
 }
 
+.intro-vignette::before,
+.intro-vignette::after {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle, rgba(190, 242, 100, 0.14), transparent 38%),
+    conic-gradient(from 120deg, transparent, rgba(74, 222, 128, 0.16), transparent, rgba(34, 211, 238, 0.08), transparent);
+  filter: blur(26px);
+  animation: intro-mist 2.1s ease-in-out both;
+}
+
+.intro-vignette::after {
+  inset: 18%;
+  animation-delay: 0.2s;
+  animation-direction: reverse;
+}
+
 .intro-logo-wrap {
   position: relative;
   display: grid;
   place-items: center;
-  gap: 1.15rem;
-  animation: intro-logo-breathe 1.9s ease-out both;
+  gap: 1.25rem;
+  animation: intro-logo-breathe 1.55s ease-out both;
 }
 
 .intro-logo-orbit {
@@ -203,12 +242,15 @@ a {
 }
 
 .intro-brand {
-  font-size: clamp(1rem, 2vw, 1.35rem);
-  font-weight: 950;
-  letter-spacing: 0.32em;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: clamp(1.35rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(236, 253, 245, 0.92);
-  text-shadow: 0 0 20px rgba(190, 242, 100, 0.62);
+  text-shadow:
+    0 0 20px rgba(190, 242, 100, 0.62),
+    0 0 52px rgba(74, 222, 128, 0.28);
 }
 
 .intro-line {

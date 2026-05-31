@@ -7,18 +7,29 @@ export function IntroReveal() {
   const [leaving, setLeaving] = useState(false);
 
   useEffect(() => {
+    document.documentElement.classList.add("vp-intro-lock");
     const seen = sessionStorage.getItem("vp-intro-seen");
-    if (seen) return;
+    if (seen) {
+      setVisible(false);
+      document.querySelector(".intro-shell")?.remove();
+      document.documentElement.classList.remove("vp-intro-lock");
+      return;
+    }
 
     setVisible(true);
+    document.querySelector(".intro-shell")?.remove();
     sessionStorage.setItem("vp-intro-seen", "true");
 
-    const leaveTimer = window.setTimeout(() => setLeaving(true), 2100);
-    const hideTimer = window.setTimeout(() => setVisible(false), 3150);
+    const leaveTimer = window.setTimeout(() => setLeaving(true), 1650);
+    const hideTimer = window.setTimeout(() => {
+      setVisible(false);
+      document.documentElement.classList.remove("vp-intro-lock");
+    }, 2500);
 
     return () => {
       window.clearTimeout(leaveTimer);
       window.clearTimeout(hideTimer);
+      document.documentElement.classList.remove("vp-intro-lock");
     };
   }, []);
 
