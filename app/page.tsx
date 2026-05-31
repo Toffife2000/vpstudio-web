@@ -436,17 +436,19 @@ export default function Home() {
 
           <div className="mt-14 grid gap-6 text-left lg:grid-cols-3">
             {testimonials.map((item) => (
-              <article key={item.name} className="neon-card neon-violet relative rounded-3xl border border-emerald-300/12 bg-white/[0.035] p-8">
-                <div className="absolute -top-5 left-8 flex h-11 w-11 items-center justify-center rounded-full bg-emerald-300/15 text-emerald-200">
-                  <Quote className="h-5 w-5" />
-                </div>
-                <div className="mt-4 flex gap-1 text-lime-300">
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <Star key={index} className="h-4 w-4 fill-current" />
-                  ))}
+              <article key={item.name} className="neon-card neon-violet flex min-h-72 flex-col rounded-3xl border border-emerald-300/12 bg-white/[0.035] p-8">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full border border-emerald-300/18 bg-emerald-300/15 text-emerald-200 shadow-[0_0_28px_rgba(74,222,128,0.16)]">
+                    <Quote className="h-5 w-5" />
+                  </div>
+                  <div className="flex gap-1 text-lime-300">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <Star key={index} className="h-4 w-4 fill-current" />
+                    ))}
+                  </div>
                 </div>
                 <p className="mt-6 text-lg font-semibold leading-8 text-zinc-300">"{item.quote}"</p>
-                <p className="mt-8 font-black">{item.name}</p>
+                <p className="mt-auto pt-8 font-black">{item.name}</p>
               </article>
             ))}
           </div>

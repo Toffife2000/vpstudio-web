@@ -153,6 +153,7 @@ export function ProjectConfigurator() {
       `Rozsah: ${answers.scope || "nezadané"}`,
       `Vizuálny štýl: ${answers.style || "nezadané"}`,
       `Doplnky: ${answers.addons.length ? answers.addons.join(", ") : "nezadané"}`,
+      `Odporúčanie: ${recommendation}`,
       "",
       `Meno / firma: ${answers.name || "nezadané"}`,
       `E-mail: ${answers.email || "nezadané"}`,
@@ -162,7 +163,7 @@ export function ProjectConfigurator() {
     ].join("\n");
 
     return `mailto:info@vpstudio.sk?subject=${encodeURIComponent("Nezáväzný brief z konfigurátora")}&body=${encodeURIComponent(body)}`;
-  }, [answers]);
+  }, [answers, recommendation]);
 
   function nextStep() {
     setTouched(true);
@@ -409,7 +410,7 @@ export function ProjectConfigurator() {
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
                     <h3 className="text-3xl font-black">Zhrnutie</h3>
-                    <p className="mt-2 text-sm font-semibold text-zinc-400">Skontroluj zadanie a odošli ho ako pripravený e-mail.</p>
+                    <p className="mt-2 text-sm font-semibold text-zinc-400">Skontroluj zadanie, doplň svoj e-mail a odošli nám celý nakonfigurovaný brief.</p>
                   </div>
                   <CheckCircle2 className="h-9 w-9 text-lime-300" />
                 </div>
@@ -434,6 +435,31 @@ export function ProjectConfigurator() {
 
                 <div className="mt-5 rounded-2xl border border-lime-300/18 bg-lime-300/[0.055] p-4 text-sm font-semibold leading-6 text-lime-50">
                   {recommendation}
+                </div>
+
+                <div className="mt-5 grid gap-4 rounded-2xl border border-cyan-300/18 bg-cyan-300/[0.045] p-4 sm:grid-cols-[1fr_1fr]">
+                  <label className="grid gap-2 text-sm font-black">
+                    Váš e-mail pre odpoveď *
+                    <input
+                      value={answers.email}
+                      onChange={(event) => setAnswers((current) => ({ ...current, email: event.target.value }))}
+                      type="email"
+                      placeholder="vas@email.sk"
+                      className="min-h-13 rounded-2xl border border-emerald-300/15 bg-[#04100b] px-4 text-base font-semibold text-white outline-none transition placeholder:text-zinc-600 focus:border-emerald-300/55"
+                    />
+                  </label>
+                  <label className="grid gap-2 text-sm font-black">
+                    Meno / firma
+                    <input
+                      value={answers.name}
+                      onChange={(event) => setAnswers((current) => ({ ...current, name: event.target.value }))}
+                      placeholder="Napr. Firma s.r.o."
+                      className="min-h-13 rounded-2xl border border-emerald-300/15 bg-[#04100b] px-4 text-base font-semibold text-white outline-none transition placeholder:text-zinc-600 focus:border-emerald-300/55"
+                    />
+                  </label>
+                  <p className="text-sm font-semibold leading-6 text-zinc-400 sm:col-span-2">
+                    Tlačidlo otvorí váš e-mailový program s pripravenou správou. V texte budú všetky zvolené veci z konfigurátora.
+                  </p>
                 </div>
 
                 <a
