@@ -84,7 +84,7 @@ function ChoiceButton({
     <button
       type="button"
       onClick={onClick}
-      className={`group flex min-h-16 items-center gap-4 rounded-2xl border px-4 py-3 text-left text-base font-bold transition ${
+      className={`group flex min-h-14 items-center gap-3 rounded-2xl border px-4 py-3 text-left text-sm font-bold transition sm:min-h-16 sm:gap-4 sm:text-base ${
         selected
           ? "border-lime-300/70 bg-lime-300/12 text-white shadow-[0_0_28px_rgba(190,242,100,0.2)]"
           : "border-emerald-300/12 bg-[#050c08] text-zinc-300 hover:border-emerald-300/60 hover:bg-emerald-300/10 hover:shadow-[0_0_30px_rgba(74,222,128,0.18)]"
@@ -121,6 +121,29 @@ export function ProjectConfigurator() {
     const requiredDone = [stepValid[0], stepValid[2]].filter(Boolean).length;
     return requiredDone + (answers.addons.length ? 1 : 0) + (answers.style ? 1 : 0);
   }, [answers.addons.length, answers.style, stepValid]);
+
+  const recommendation = useMemo(() => {
+    if (!answers.projectType) {
+      return "Najprv vyber typ projektu. Potom sa zhrnutie prispôsobí tomu, čo klient reálne potrebuje.";
+    }
+
+    const base =
+      answers.projectType === "E-shop"
+        ? "Odporúčanie: e-shop riešiť spolu s produktmi, kategóriami, dôverou, meraním a Google Merchantom."
+        : answers.projectType === "SEO / Google nastavenia"
+          ? "Odporúčanie: začať technickým auditom, Search Console, indexáciou, rýchlosťou a obsahovou štruktúrou."
+          : answers.projectType === "Grafika a Photoshop"
+            ? "Odporúčanie: pripraviť jednotný vizuálny smer, fotky, bannery a podklady pre web aj reklamu."
+            : answers.projectType === "Kompletný balík"
+              ? "Odporúčanie: spojiť web, SEO, Merchant, grafiku a foto edit do jedného konzistentného štýlu."
+              : "Odporúčanie: postaviť rýchly prezentačný web s jasným cieľom, silným prvým dojmom a kontaktom.";
+
+    const addonsText = answers.addons.length
+      ? ` Vybrané doplnky: ${answers.addons.length}.`
+      : " Doplnky môžeš doplniť, ak chceš presnejšiu ponuku.";
+
+    return `${base}${addonsText}`;
+  }, [answers.addons.length, answers.projectType]);
 
   const mailHref = useMemo(() => {
     const body = [
@@ -173,7 +196,7 @@ export function ProjectConfigurator() {
           <h2 className="text-4xl font-black leading-tight tracking-tight sm:text-6xl">
             Vyklikaj zadanie. My pošleme riešenie.
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg font-semibold leading-8 text-zinc-400">
+          <p className="mx-auto mt-5 max-w-2xl text-base font-semibold leading-7 text-zinc-400 sm:text-lg sm:leading-8">
             Krátky brief pre web, e-shop, SEO, Google Merchant, Photoshop alebo grafiku. Na mobile vidíš vždy len jeden krok.
           </p>
         </div>
@@ -270,6 +293,9 @@ export function ProjectConfigurator() {
                     </div>
                   </div>
                 </div>
+                <div className="mt-6 rounded-2xl border border-lime-300/18 bg-lime-300/[0.055] p-4 text-sm font-semibold leading-6 text-lime-50">
+                  {recommendation}
+                </div>
               </div>
             ) : null}
 
@@ -316,6 +342,9 @@ export function ProjectConfigurator() {
                       ))}
                     </div>
                   </div>
+                </div>
+                <div className="mt-6 rounded-2xl border border-cyan-300/18 bg-cyan-300/[0.055] p-4 text-sm font-semibold leading-6 text-cyan-50">
+                  {recommendation}
                 </div>
               </div>
             ) : null}
@@ -401,6 +430,10 @@ export function ProjectConfigurator() {
                       <p className="mt-2 text-base font-bold leading-6 text-white">{value}</p>
                     </div>
                   ))}
+                </div>
+
+                <div className="mt-5 rounded-2xl border border-lime-300/18 bg-lime-300/[0.055] p-4 text-sm font-semibold leading-6 text-lime-50">
+                  {recommendation}
                 </div>
 
                 <a

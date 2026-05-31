@@ -454,9 +454,9 @@ a {
 
 @media (max-width: 640px) {
   .emerald-portal {
-    top: 42%;
-    width: 118vw;
-    opacity: 0.58;
+    top: 39%;
+    width: 106vw;
+    opacity: 0.42;
   }
 
   .portal-ray {
@@ -464,24 +464,24 @@ a {
   }
 
   .emerald-portal::before {
-    inset: 16%;
-    animation-duration: 34s;
+    inset: 19%;
+    animation-duration: 42s;
     filter:
-      drop-shadow(0 0 12px rgba(74, 222, 128, 0.5))
-      drop-shadow(0 0 34px rgba(34, 197, 94, 0.28));
+      drop-shadow(0 0 10px rgba(74, 222, 128, 0.38))
+      drop-shadow(0 0 24px rgba(34, 197, 94, 0.18));
   }
 
   .emerald-portal::after {
-    inset: 25%;
-    animation-duration: 7s;
+    inset: 29%;
+    animation-duration: 8s;
     box-shadow:
-      0 0 24px rgba(74, 222, 128, 0.35),
-      inset 0 0 28px rgba(132, 204, 22, 0.14);
+      0 0 18px rgba(74, 222, 128, 0.24),
+      inset 0 0 20px rgba(132, 204, 22, 0.1);
   }
 
   .portal-core,
   .portal-aura {
-    filter: blur(7px);
+    filter: blur(5px);
   }
 
   .neon-card:hover,

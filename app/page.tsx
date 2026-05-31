@@ -30,6 +30,7 @@ import {
   Zap
 } from "lucide-react";
 import { NeonHover } from "./neon-hover";
+import { MobileMenu } from "./mobile-menu";
 import { ProjectConfigurator } from "./project-configurator";
 
 const navItems = [
@@ -168,10 +169,11 @@ export default function Home() {
 
           <a
             href="#kontakt"
-            className="neon-action inline-flex min-h-11 items-center justify-center rounded-2xl bg-gradient-to-r from-lime-300 via-emerald-300 to-teal-400 px-5 text-sm font-black text-[#03110a] shadow-[0_0_36px_rgba(74,222,128,0.32)] transition hover:scale-[1.02]"
+            className="neon-action hidden min-h-11 items-center justify-center rounded-2xl bg-gradient-to-r from-lime-300 via-emerald-300 to-teal-400 px-5 text-sm font-black text-[#03110a] shadow-[0_0_36px_rgba(74,222,128,0.32)] transition hover:scale-[1.02] lg:inline-flex"
           >
             Chcem prémiový web
           </a>
+          <MobileMenu items={navItems} />
         </div>
       </header>
 
