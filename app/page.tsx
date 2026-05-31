@@ -33,6 +33,7 @@ import { NeonHover } from "./neon-hover";
 import { MobileMenu } from "./mobile-menu";
 import { ProjectConfigurator } from "./project-configurator";
 import { HeroNeonSystem } from "./hero-neon-system";
+import { IntroReveal } from "./intro-reveal";
 
 const navItems = [
   { label: "Služby", href: "#sluzby" },
@@ -201,6 +202,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#020805] text-white">
+      <IntroReveal />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
