@@ -7,6 +7,15 @@ export function IntroReveal() {
   const [leaving, setLeaving] = useState(false);
 
   useEffect(() => {
+    const isDesktop = window.matchMedia("(min-width: 900px) and (hover: hover)").matches;
+    if (!isDesktop) {
+      setVisible(false);
+      document.querySelector(".intro-shell")?.remove();
+      document.documentElement.classList.remove("vp-intro-lock");
+      sessionStorage.setItem("vp-intro-seen", "mobile-skip");
+      return;
+    }
+
     document.documentElement.classList.add("vp-intro-lock");
     const seen = sessionStorage.getItem("vp-intro-seen");
     if (seen) {

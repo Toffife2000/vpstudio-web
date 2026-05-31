@@ -355,6 +355,17 @@ a {
   animation: intro-line 2.65s ease-in-out both;
 }
 
+@media (max-width: 899px), (hover: none) {
+  .intro-reveal,
+  .intro-shell {
+    display: none !important;
+  }
+
+  .vp-intro-lock body {
+    overflow: auto;
+  }
+}
+
 @keyframes emerald-breathe {
   0%,
   100% {
