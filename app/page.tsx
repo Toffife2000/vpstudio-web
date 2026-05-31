@@ -72,6 +72,8 @@ const stats = [
   }
 ];
 
+const techSignals = ["WebGL shader", "Next.js", "React", "Tailwind", "Vercel", "SEO ready"];
+
 const services = [
   {
     title: "Prémiové webové stránky",
@@ -172,8 +174,37 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "VP Studio",
+    legalName: "Aeterna spol. s r.o.",
+    url: "https://vpstudio.sk",
+    email: "info@vpstudio.sk",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Rozmarínova 3238/26",
+      postalCode: "945 01",
+      addressLocality: "Komárno",
+      addressCountry: "SK"
+    },
+    areaServed: "Slovensko",
+    serviceType: [
+      "Tvorba webových stránok",
+      "E-shopy",
+      "SEO",
+      "Google Merchant Center",
+      "Grafický dizajn",
+      "Photoshop editácia fotiek"
+    ]
+  };
+
   return (
     <main className="min-h-screen overflow-hidden bg-[#020805] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <NeonHover />
       <div className="pointer-events-none fixed inset-0 bg-[linear-gradient(rgba(74,222,128,0.038)_1px,transparent_1px),linear-gradient(90deg,rgba(74,222,128,0.038)_1px,transparent_1px)] bg-[size:82px_82px]" />
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_16%_16%,rgba(16,185,129,0.18),transparent_28%),radial-gradient(circle_at_82%_18%,rgba(190,242,100,0.12),transparent_24%),radial-gradient(circle_at_75%_82%,rgba(5,150,105,0.16),transparent_34%)]" />
@@ -267,6 +298,17 @@ export default function Home() {
               <span className="text-sm font-bold text-zinc-400">prémiový prvý dojem</span>
             </div>
             <p className="text-sm font-black text-emerald-100">Web + e-shop + SEO + Merchant + Photoshop</p>
+          </div>
+
+          <div className="mx-auto mt-10 grid max-w-5xl gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            {techSignals.map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-emerald-300/14 bg-[#04100b]/55 px-4 py-3 text-xs font-black uppercase tracking-[0.14em] text-emerald-100 shadow-[0_0_34px_rgba(74,222,128,0.08)] backdrop-blur-xl"
+              >
+                {item}
+              </div>
+            ))}
           </div>
         </div>
 
