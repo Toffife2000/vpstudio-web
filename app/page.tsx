@@ -251,25 +251,25 @@ export default function Home() {
           <Target className="h-7 w-7" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-6xl text-center">
+        <div className="relative z-10 mx-auto max-w-7xl text-center lg:flex lg:min-h-[58vh] lg:flex-col lg:items-start lg:justify-end lg:text-left">
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/[0.045] px-4 py-2 text-sm font-black text-emerald-100">
             <Sparkles className="h-4 w-4 text-lime-300" />
             Ultra premium weby a grafika
           </div>
 
-          <h1 className="mx-auto mt-8 max-w-5xl text-5xl font-black leading-[0.92] tracking-tight text-white sm:text-7xl lg:text-8xl">
+          <h1 className="mx-auto mt-8 max-w-5xl text-5xl font-black leading-[0.92] tracking-tight text-white sm:text-7xl lg:mx-0 lg:max-w-4xl lg:text-8xl">
             <span className="block">Web, ktorý</span>
             <span className="block bg-gradient-to-r from-lime-200 via-emerald-300 to-teal-300 bg-clip-text text-transparent">
               vtiahne zákazníka
             </span>
           </h1>
 
-          <p className="mx-auto mt-7 max-w-2xl text-lg font-semibold leading-8 text-zinc-300 sm:text-xl">
+          <p className="mx-auto mt-7 max-w-2xl text-lg font-semibold leading-8 text-zinc-300 sm:text-xl lg:mx-0">
             Tvorím weby, e-shopy, SEO nastavenia a grafiku pre Slovensko s vlastnou atmosférou. Viem riešiť
             Photoshop, produktové fotky, Google Merchant, Search Console aj technické detaily, ktoré robia rozdiel.
           </p>
 
-          <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
+          <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
             <a
               href="#konfigurator"
               className="rgb-action inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl px-7 text-base font-black text-white transition hover:scale-[1.02]"
@@ -286,7 +286,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="mx-auto mt-9 flex max-w-xl flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mx-auto mt-9 flex max-w-xl flex-col items-center justify-center gap-4 sm:flex-row lg:mx-0 lg:justify-start">
             <div className="flex items-center gap-3 rounded-2xl border border-emerald-300/15 bg-white/[0.04] px-4 py-3 backdrop-blur">
               <Globe2 className="h-5 w-5 text-emerald-300" />
               <div className="flex gap-1 text-lime-300">
@@ -300,7 +300,7 @@ export default function Home() {
             <p className="text-sm font-black text-emerald-100">Web + e-shop + SEO + Merchant + Photoshop</p>
           </div>
 
-          <div className="mx-auto mt-10 grid max-w-5xl gap-3 sm:grid-cols-3 lg:grid-cols-6">
+          <div className="mx-auto mt-10 grid max-w-5xl gap-3 sm:grid-cols-3 lg:mx-0 lg:grid-cols-6">
             {techSignals.map((item) => (
               <div
                 key={item}

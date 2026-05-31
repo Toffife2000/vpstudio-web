@@ -15,78 +15,104 @@ precision highp float;
 uniform vec2 u_resolution;
 uniform float u_time;
 
-float ring(vec2 uv, float radius, float width) {
-  float d = abs(length(uv) - radius);
-  return smoothstep(width, 0.0, d);
-}
-
-float arc(vec2 uv, float radius, float width, float start, float end) {
-  float a = atan(uv.y, uv.x);
-  if (a < 0.0) a += 6.28318530718;
-  float mask = smoothstep(start - 0.08, start, a) * (1.0 - smoothstep(end, end + 0.08, a));
-  return ring(uv, radius, width) * mask;
-}
-
 mat2 rotate2d(float angle) {
   float s = sin(angle);
   float c = cos(angle);
   return mat2(c, -s, s, c);
 }
 
+float hash(vec2 p) {
+  return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+}
+
+float noise(vec2 p) {
+  vec2 i = floor(p);
+  vec2 f = fract(p);
+  vec2 u = f * f * (3.0 - 2.0 * f);
+  return mix(
+    mix(hash(i + vec2(0.0, 0.0)), hash(i + vec2(1.0, 0.0)), u.x),
+    mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x),
+    u.y
+  );
+}
+
+float ring(vec2 uv, float radius, float width) {
+  float d = abs(length(uv) - radius);
+  return smoothstep(width, 0.0, d);
+}
+
+float petal(vec2 uv, float angle, float reach, float width, float fold, float time) {
+  vec2 p = rotate2d(angle) * uv;
+  p.x += 0.03 * sin(time + p.y * 7.0);
+  float r = length(p);
+  float a = atan(p.y, p.x);
+  float blade = exp(-pow(abs(a) / width, 2.0));
+  float edge = smoothstep(0.02, 0.12, r) * (1.0 - smoothstep(reach * 0.74, reach, r));
+  float rib = sin(r * 34.0 - time * 1.8 + fold) * 0.5 + 0.5;
+  return blade * edge * (0.72 + rib * 0.28);
+}
+
 void main() {
+  vec2 st = gl_FragCoord.xy / u_resolution.xy;
   vec2 uv = (gl_FragCoord.xy - 0.5 * u_resolution.xy) / min(u_resolution.x, u_resolution.y);
-  uv.y += 0.035;
 
   float t = u_time;
-  float pulse = 1.0 + sin(t * 1.55) * 0.055;
-  vec2 spin = rotate2d(t * 0.26) * uv;
-  vec2 counter = rotate2d(-t * 0.18) * uv;
+  float desktopShift = smoothstep(720.0, 980.0, u_resolution.x);
+  uv.x -= 0.22 * desktopShift;
+  uv.y += 0.03;
 
-  float mainRing = ring(spin, 0.39 * pulse, 0.017);
-  float outerGlow = ring(spin, 0.54 + sin(t * 0.9) * 0.025, 0.01);
-  float innerRing = ring(counter, 0.255 / pulse, 0.008);
-  float a1 = arc(spin, 0.42, 0.022, 0.15, 4.95);
-  float a2 = arc(counter, 0.30, 0.012, 1.15, 5.7);
+  float breathe = 1.0 + sin(t * 0.85) * 0.045;
+  vec2 bloomUv = rotate2d(sin(t * 0.22) * 0.04) * uv / breathe;
+  float r = length(bloomUv);
+  float a = atan(bloomUv.y, bloomUv.x);
 
-  float rays = 0.0;
-  float angle = atan(uv.y, uv.x);
-  float rayPattern = abs(sin(angle * 22.0 + t * 2.2));
-  rays = smoothstep(0.986, 1.0, rayPattern) * smoothstep(0.12, 0.62, length(uv)) * (1.0 - smoothstep(0.88, 1.02, length(uv)));
-  rays *= 0.32 + sin(t * 2.5 + angle * 6.0) * 0.18;
-
-  float energy = 0.0;
-  for (int i = 0; i < 8; i++) {
+  float bloom = 0.0;
+  for (int i = 0; i < 18; i++) {
     float fi = float(i);
-    float orbit = 0.29 + mod(fi, 3.0) * 0.07;
-    float a = t * (0.55 + fi * 0.035) + fi * 0.785;
-    vec2 p = vec2(cos(a), sin(a) * 0.72) * orbit;
-    energy += 0.012 / max(0.008, length(uv - p));
+    float angle = fi * 0.34906585 + sin(t * 0.18 + fi) * 0.08;
+    float reach = 0.56 + 0.14 * sin(fi * 1.7 + t * 0.35);
+    float width = 0.095 + 0.035 * sin(fi * 2.1);
+    bloom += petal(bloomUv, angle, reach, width, fi * 0.6, t) * (0.45 + 0.55 * sin(fi * 1.3 + t * 0.28) * 0.5 + 0.5);
   }
-  energy *= 0.07;
 
-  float core = exp(-dot(uv, uv) * 9.0) * (0.48 + sin(t * 2.8) * 0.13);
-  float scan = smoothstep(0.015, 0.0, abs(uv.y - sin(uv.x * 7.0 + t * 1.2) * 0.035)) * 0.08;
+  float veins = abs(sin(a * 18.0 + r * 26.0 - t * 1.4));
+  veins = smoothstep(0.94, 1.0, veins) * smoothstep(0.1, 0.5, r) * (1.0 - smoothstep(0.72, 0.92, r));
 
-  vec3 lime = vec3(0.74, 1.0, 0.22);
-  vec3 emerald = vec3(0.12, 0.95, 0.47);
-  vec3 cyan = vec3(0.18, 0.85, 1.0);
-  vec3 white = vec3(0.92, 1.0, 0.9);
+  float halo = exp(-dot(bloomUv, bloomUv) * 2.2) * 0.28;
+  float core = exp(-dot(bloomUv, bloomUv) * 34.0) * (0.9 + sin(t * 2.4) * 0.1);
+  float outer = ring(rotate2d(t * 0.08) * bloomUv, 0.58 + sin(t * 0.4) * 0.02, 0.018);
 
-  vec3 color = vec3(0.0);
-  color += lime * mainRing * 1.45;
-  color += emerald * outerGlow * 0.72;
-  color += cyan * innerRing * 0.52;
-  color += white * a1 * 1.25;
-  color += lime * a2 * 0.9;
-  color += emerald * rays;
-  color += lime * energy;
-  color += white * core * 0.34;
-  color += cyan * scan;
+  float particles = 0.0;
+  for (int i = 0; i < 16; i++) {
+    float fi = float(i);
+    float orbit = 0.34 + mod(fi, 4.0) * 0.095;
+    float pa = t * (0.24 + fi * 0.012) + fi * 0.73;
+    vec2 p = vec2(cos(pa), sin(pa) * 0.66) * orbit;
+    particles += 0.006 / max(0.008, length(bloomUv - p));
+  }
 
-  float vignette = 1.0 - smoothstep(0.52, 1.05, length(uv));
-  color *= vignette;
+  float grain = noise(st * vec2(160.0, 90.0) + t * 0.2) * 0.05;
+  float cinematicMask = smoothstep(0.96, 0.14, length(uv + vec2(0.05, 0.0)));
+  float sideShade = smoothstep(0.0, 0.55, st.x) * (1.0 - smoothstep(0.92, 1.0, st.x));
 
-  float alpha = clamp(max(max(color.r, color.g), color.b) * 1.45, 0.0, 0.95);
+  vec3 blackGreen = vec3(0.005, 0.02, 0.012);
+  vec3 lime = vec3(0.72, 1.0, 0.25);
+  vec3 emerald = vec3(0.08, 0.92, 0.46);
+  vec3 cyan = vec3(0.1, 0.84, 1.0);
+  vec3 white = vec3(0.92, 1.0, 0.88);
+
+  vec3 color = blackGreen * 0.42;
+  color += emerald * bloom * 0.16;
+  color += lime * bloom * bloom * 0.06;
+  color += white * core * 0.74;
+  color += lime * veins * 0.22;
+  color += cyan * outer * 0.18;
+  color += emerald * halo;
+  color += lime * particles * 0.2;
+  color += grain;
+  color *= cinematicMask * sideShade;
+
+  float alpha = clamp(max(max(color.r, color.g), color.b) * 1.28, 0.0, 0.96);
   gl_FragColor = vec4(color, alpha);
 }
 `;
