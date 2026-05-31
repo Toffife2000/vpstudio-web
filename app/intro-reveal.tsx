@@ -20,11 +20,11 @@ export function IntroReveal() {
     document.querySelector(".intro-shell")?.remove();
     sessionStorage.setItem("vp-intro-seen", "true");
 
-    const leaveTimer = window.setTimeout(() => setLeaving(true), 1650);
+    const leaveTimer = window.setTimeout(() => setLeaving(true), 2600);
     const hideTimer = window.setTimeout(() => {
       setVisible(false);
       document.documentElement.classList.remove("vp-intro-lock");
-    }, 2500);
+    }, 4300);
 
     return () => {
       window.clearTimeout(leaveTimer);
