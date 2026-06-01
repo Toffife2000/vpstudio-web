@@ -530,7 +530,13 @@ export default function Home() {
 
               <label className="mt-5 flex items-start gap-3 text-sm font-semibold leading-6 text-zinc-400">
                 <input name="suhlas" type="checkbox" required className="mt-1 h-4 w-4 accent-emerald-300" />
-                Súhlasím so spracovaním údajov za účelom odpovede na správu.
+                <span>
+                  Beriem na vedomie spracúvanie osobných údajov podľa{" "}
+                  <a href="/ochrana-osobnych-udajov" className="font-black text-emerald-300 underline underline-offset-4 hover:text-lime-200">
+                    zásad ochrany osobných údajov
+                  </a>
+                  .
+                </span>
               </label>
 
               <button type="submit" className="neon-action mt-7 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-lime-300 via-emerald-300 to-teal-400 px-8 text-base font-black text-[#03110a] shadow-[0_0_42px_rgba(74,222,128,0.28)] transition hover:scale-[1.01]">
@@ -632,7 +638,14 @@ export default function Home() {
 
           <div className="mt-14 flex flex-col gap-4 border-t border-emerald-300/12 pt-8 text-sm font-semibold text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
             <p>© 2026 VP Studio / Aeterna spol. s r.o. Všetky práva vyhradené.</p>
-            <p>Tvorené s citom pre dizajn, svetlo a čistý kód.</p>
+            <div className="flex flex-wrap gap-x-5 gap-y-2 sm:justify-end">
+              <a href="/ochrana-osobnych-udajov" className="transition hover:text-emerald-300">
+                Ochrana osobných údajov
+              </a>
+              <a href="/vseobecne-obchodne-podmienky" className="transition hover:text-emerald-300">
+                Všeobecné obchodné podmienky
+              </a>
+            </div>
           </div>
         </div>
       </footer>

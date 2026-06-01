@@ -56,6 +56,7 @@ type Answers = {
   email: string;
   phone: string;
   message: string;
+  privacyNotice: boolean;
 };
 
 const initialAnswers: Answers = {
@@ -66,7 +67,8 @@ const initialAnswers: Answers = {
   name: "",
   email: "",
   phone: "",
-  message: ""
+  message: "",
+  privacyNotice: false
 };
 
 function ChoiceButton({
@@ -113,9 +115,10 @@ export function ProjectConfigurator() {
   const stepValid = [
     Boolean(answers.projectType && answers.scope),
     true,
-    Boolean(answers.name.trim() && emailOk),
+    Boolean(answers.name.trim() && emailOk && answers.privacyNotice),
     true
   ];
+  const finalCanSend = Boolean(answers.name.trim() && emailOk && answers.privacyNotice);
 
   const progress = useMemo(() => {
     const requiredDone = [stepValid[0], stepValid[2]].filter(Boolean).length;
@@ -158,6 +161,7 @@ export function ProjectConfigurator() {
       `Meno / firma: ${answers.name || "nezadané"}`,
       `E-mail: ${answers.email || "nezadané"}`,
       `Telefón: ${answers.phone || "nezadané"}`,
+      `GDPR informácia: ${answers.privacyNotice ? "potvrdená" : "nepotvrdená"}`,
       "",
       `Poznámka: ${answers.message || "bez poznámky"}`
     ].join("\n");
@@ -401,6 +405,21 @@ export function ProjectConfigurator() {
                       className="rounded-2xl border border-emerald-300/15 bg-[#04100b] px-4 py-4 text-base font-semibold text-white outline-none transition placeholder:text-zinc-600 focus:border-emerald-300/55"
                     />
                   </label>
+                  <label className="flex items-start gap-3 text-sm font-semibold leading-6 text-zinc-400 sm:col-span-2">
+                    <input
+                      checked={answers.privacyNotice}
+                      onChange={(event) => setAnswers((current) => ({ ...current, privacyNotice: event.target.checked }))}
+                      type="checkbox"
+                      className="mt-1 h-4 w-4 accent-emerald-300"
+                    />
+                    <span>
+                      Beriem na vedomie spracúvanie osobných údajov podľa{" "}
+                      <a href="/ochrana-osobnych-udajov" className="font-black text-emerald-300 underline underline-offset-4 hover:text-lime-200">
+                        zásad ochrany osobných údajov
+                      </a>
+                      .
+                    </span>
+                  </label>
                 </div>
               </div>
             ) : null}
@@ -424,6 +443,7 @@ export function ProjectConfigurator() {
                     ["Meno / firma", answers.name],
                     ["E-mail", answers.email],
                     ["Telefón", answers.phone || "Neuvedené"],
+                    ["GDPR informácia", answers.privacyNotice ? "Potvrdená" : "Nepotvrdená"],
                     ["Poznámka", answers.message || "Bez poznámky"]
                   ].map(([label, value]) => (
                     <div key={label} className="rounded-2xl border border-emerald-300/12 bg-[#050c08] p-4">
@@ -460,11 +480,23 @@ export function ProjectConfigurator() {
                   <p className="text-sm font-semibold leading-6 text-zinc-400 sm:col-span-2">
                     Tlačidlo otvorí váš e-mailový program s pripravenou správou. V texte budú všetky zvolené veci z konfigurátora.
                   </p>
+                  {!finalCanSend ? (
+                    <p className="text-sm font-bold leading-6 text-amber-200 sm:col-span-2">
+                      Pred odoslaním doplň platný e-mail, meno alebo firmu a potvrď GDPR informáciu v kroku Kontakt.
+                    </p>
+                  ) : null}
                 </div>
 
                 <a
-                  href={mailHref}
-                  className="rgb-action mt-7 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-2xl px-7 text-base font-black text-white"
+                  href={finalCanSend ? mailHref : "#konfigurator"}
+                  onClick={(event) => {
+                    if (!finalCanSend) {
+                      event.preventDefault();
+                      setTouched(true);
+                      setActiveStep(2);
+                    }
+                  }}
+                  className={`rgb-action mt-7 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-2xl px-7 text-base font-black text-white ${finalCanSend ? "" : "opacity-70"}`}
                 >
                   Odoslať konfiguráciu
                   <Send className="h-5 w-5" />
@@ -477,7 +509,7 @@ export function ProjectConfigurator() {
             <div className="mt-5 rounded-2xl border border-amber-300/25 bg-amber-300/10 px-4 py-3 text-sm font-bold text-amber-100">
               {activeStep === 0
                 ? "Pre pokračovanie vyber typ projektu aj rozsah."
-                : "Doplň meno alebo názov firmy a platný e-mail."}
+                : "Doplň meno alebo názov firmy, platný e-mail a potvrď GDPR informáciu."}
             </div>
           ) : null}
 
