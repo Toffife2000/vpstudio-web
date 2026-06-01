@@ -176,26 +176,81 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: "VP Studio",
-    legalName: "Aeterna spol. s r.o.",
-    url: "https://vpstudio.sk",
-    email: "info@vpstudio.sk",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Rozmarínova 3238/26",
-      postalCode: "945 01",
-      addressLocality: "Komárno",
-      addressCountry: "SK"
-    },
-    areaServed: "Slovensko",
-    serviceType: [
-      "Tvorba webových stránok",
-      "E-shopy",
-      "SEO",
-      "Google Merchant Center",
-      "Grafický dizajn",
-      "Photoshop editácia fotiek"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://vpstudio.sk/#organization",
+        name: "VP Studio",
+        legalName: "Aeterna spol. s r.o.",
+        url: "https://vpstudio.sk",
+        email: "info@vpstudio.sk",
+        taxID: "50924010",
+        vatID: "SK2120526705",
+        sameAs: ["https://sk.linkedin.com/in/viktor-pol%C3%A1k"],
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Rozmarínova 3238/26",
+          postalCode: "945 01",
+          addressLocality: "Komárno",
+          addressCountry: "SK"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://vpstudio.sk/#website",
+        url: "https://vpstudio.sk",
+        name: "VP Studio",
+        inLanguage: "sk-SK",
+        publisher: {
+          "@id": "https://vpstudio.sk/#organization"
+        }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://vpstudio.sk/#professional-service",
+        name: "VP Studio",
+        legalName: "Aeterna spol. s r.o.",
+        url: "https://vpstudio.sk",
+        image: "https://vpstudio.sk/hero-workspace.png",
+        email: "info@vpstudio.sk",
+        areaServed: [
+          {
+            "@type": "Country",
+            name: "Slovensko"
+          },
+          {
+            "@type": "City",
+            name: "Komárno"
+          }
+        ],
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Rozmarínova 3238/26",
+          postalCode: "945 01",
+          addressLocality: "Komárno",
+          addressCountry: "SK"
+        },
+        makesOffer: [
+          "Tvorba webových stránok",
+          "Tvorba e-shopov",
+          "SEO optimalizácia",
+          "Google Search Console",
+          "Google Merchant Center",
+          "Grafický dizajn",
+          "Photoshop editácia fotiek",
+          "Produktové fotky a reklamné vizuály"
+        ],
+        serviceType: [
+          "Web design",
+          "E-commerce",
+          "SEO",
+          "Google Merchant Center",
+          "Grafický dizajn"
+        ],
+        provider: {
+          "@id": "https://vpstudio.sk/#organization"
+        }
+      }
     ]
   };
 
