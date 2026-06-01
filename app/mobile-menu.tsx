@@ -28,14 +28,15 @@ export function MobileMenu({ items }: { items: NavItem[] }) {
       </button>
 
       {open ? (
-        <div className="absolute right-0 top-16 w-[min(82vw,22rem)] rounded-3xl border border-emerald-300/18 bg-[#04100b]/96 p-3 shadow-[0_24px_90px_rgba(0,0,0,0.58)] backdrop-blur-2xl">
+        <div className="absolute right-0 top-16 z-[80] w-[min(86vw,22rem)] rounded-3xl border border-emerald-300/28 bg-[#020805] p-3 shadow-[0_28px_120px_rgba(0,0,0,0.92),0_0_0_1px_rgba(190,242,100,0.06),0_0_70px_rgba(34,197,94,0.18)]">
+          <div className="pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_18%_0%,rgba(190,242,100,0.12),transparent_36%),radial-gradient(circle_at_90%_20%,rgba(34,211,238,0.1),transparent_34%)]" />
           <nav className="grid gap-2">
             {items.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={closeMenu}
-                className="rounded-2xl border border-white/8 bg-white/[0.035] px-4 py-4 text-base font-black text-zinc-100 transition hover:border-emerald-300/50 hover:bg-emerald-300/10"
+                className="relative rounded-2xl border border-emerald-300/18 bg-[#06130c] px-4 py-4 text-base font-black text-zinc-50 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition hover:border-emerald-300/60 hover:bg-[#0a1f13] hover:text-lime-100"
               >
                 {item.label}
               </a>
