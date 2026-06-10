@@ -183,7 +183,7 @@ export default function Home() {
         name: "VP Studio",
         legalName: "D.O.W. Trade, s.r.o.",
         url: "https://vpstudio.sk",
-        email: "info@vpstudio.sk",
+        email: "viktorpolak3@gmail.com",
         taxID: "35864559",
         sameAs: ["https://sk.linkedin.com/in/viktor-pol%C3%A1k"],
         address: {
@@ -211,7 +211,7 @@ export default function Home() {
         legalName: "D.O.W. Trade, s.r.o.",
         url: "https://vpstudio.sk",
         image: "https://vpstudio.sk/hero-workspace.png",
-        email: "info@vpstudio.sk",
+        email: "viktorpolak3@gmail.com",
         areaServed: [
           {
             "@type": "Country",
@@ -534,7 +534,7 @@ export default function Home() {
 
           <div className="mt-14 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
             <form
-              action="mailto:info@vpstudio.sk"
+              action="mailto:viktorpolak3@gmail.com"
               method="post"
               encType="text/plain"
               className="neon-card neon-cyan rounded-[2rem] border border-emerald-300/15 bg-white/[0.035] p-6 shadow-[0_30px_140px_rgba(16,185,129,0.12)] sm:p-8"
@@ -606,7 +606,7 @@ export default function Home() {
 
             <div className="grid content-start gap-5">
               {[
-                { label: "E-mail", value: "info@vpstudio.sk", icon: Mail, glow: "neon-cyan" },
+                { label: "E-mail", value: "viktorpolak3@gmail.com", icon: Mail, glow: "neon-cyan" },
                 { label: "Telefón", value: "Doplníme", icon: Phone, glow: "neon-lime" },
                 { label: "Sídlo", value: "Rozmarínova 3238/26, 945 01 Komárno", icon: MapPin, glow: "neon-rose" }
               ].map((item) => {
@@ -665,7 +665,7 @@ export default function Home() {
                 <a href="#kontakt" aria-label="Instagram bude doplnený" className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.06] text-zinc-300 transition hover:bg-emerald-300 hover:text-[#03110a]">
                   <Instagram className="h-5 w-5" />
                 </a>
-                <a href="mailto:info@vpstudio.sk" aria-label="E-mail" className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.06] text-zinc-300 transition hover:bg-emerald-300 hover:text-[#03110a]">
+                <a href="mailto:viktorpolak3@gmail.com" aria-label="E-mail" className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.06] text-zinc-300 transition hover:bg-emerald-300 hover:text-[#03110a]">
                   <Mail className="h-5 w-5" />
                 </a>
               </div>

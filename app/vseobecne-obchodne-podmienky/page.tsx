@@ -12,7 +12,7 @@ const sections = [
     text: [
       "Poskytovateľom služieb je D.O.W. Trade, s.r.o., Rozmarínova 3238/26, 945 01 Komárno, IČO: 35864559, DIČ: 2022138987, zapísaná v Obchodnom registri Okresného súdu Nitra, oddiel Sro, vložka č. 17570/N.",
       "Spoločnosť nie je platiteľom DPH.",
-      "Kontaktný e-mail: info@vpstudio.sk."
+      "Kontaktný e-mail: viktorpolak3@gmail.com."
     ]
   },
   {

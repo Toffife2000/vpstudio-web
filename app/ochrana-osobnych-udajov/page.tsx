@@ -11,7 +11,7 @@ const sections = [
     title: "1. Prevádzkovateľ",
     text: [
       "Prevádzkovateľom osobných údajov je D.O.W. Trade, s.r.o., Rozmarínova 3238/26, 945 01 Komárno, IČO: 35864559, DIČ: 2022138987, zapísaná v Obchodnom registri Okresného súdu Nitra, oddiel Sro, vložka č. 17570/N.",
-      "Kontaktný e-mail pre otázky k ochrane osobných údajov: info@vpstudio.sk."
+      "Kontaktný e-mail pre otázky k ochrane osobných údajov: viktorpolak3@gmail.com."
     ]
   },
   {
@@ -63,7 +63,7 @@ const sections = [
     text: [
       "Máte právo požadovať prístup k osobným údajom, opravu, vymazanie, obmedzenie spracúvania, prenosnosť údajov a namietať proti spracúvaniu založenému na oprávnenom záujme.",
       "Ak je spracúvanie založené na súhlase, máte právo súhlas kedykoľvek odvolať bez vplyvu na zákonnosť spracúvania pred odvolaním.",
-      "Svoje práva môžete uplatniť e-mailom na info@vpstudio.sk. Máte tiež právo podať návrh alebo sťažnosť na Úrad na ochranu osobných údajov Slovenskej republiky."
+      "Svoje práva môžete uplatniť e-mailom na viktorpolak3@gmail.com. Máte tiež právo podať návrh alebo sťažnosť na Úrad na ochranu osobných údajov Slovenskej republiky."
     ]
   }
 ];

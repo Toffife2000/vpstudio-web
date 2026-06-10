@@ -300,7 +300,7 @@ function htmlSnippet() {
   <h3>Profil</h3>
   <p><strong>VP Studio</strong><br>Viktor Pol\u00e1k<br>Tvorba webov, \u00fapravy Shoptet e-shopov, SEO, Google Merchant, produktov\u00e9 popisy, bannery a grafika.</p>
 
-  <p><strong>Web:</strong> <a href="${baseUrl}/" target="_blank" rel="noopener">vpstudio-web.vercel.app</a><br><strong>E-mail:</strong> <a href="mailto:info@vpstudio.sk">info@vpstudio.sk</a></p>
+  <p><strong>Web:</strong> <a href="${baseUrl}/" target="_blank" rel="noopener">vpstudio-web.vercel.app</a><br><strong>E-mail:</strong> <a href="mailto:viktorpolak3@gmail.com">viktorpolak3@gmail.com</a></p>
 
   <p>Prev\u00e1dzkovate\u013e: D.O.W. Trade, s.r.o., Rozmar\u00ednova 3238/26, 945 01 Kom\u00e1rno.<br>I\u010cO: 35864559<br>DI\u010c: 2022138987<br>Spolo\u010dnos\u0165 nie je platite\u013eom DPH.</p>
 </div>

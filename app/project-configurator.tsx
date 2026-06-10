@@ -166,7 +166,7 @@ export function ProjectConfigurator() {
       `Poznámka: ${answers.message || "bez poznámky"}`
     ].join("\n");
 
-    return `mailto:info@vpstudio.sk?subject=${encodeURIComponent("Nezáväzný brief z konfigurátora")}&body=${encodeURIComponent(body)}`;
+    return `mailto:viktorpolak3@gmail.com?subject=${encodeURIComponent("Nezáväzný brief z konfigurátora")}&body=${encodeURIComponent(body)}`;
   }, [answers, recommendation]);
 
   function nextStep() {
