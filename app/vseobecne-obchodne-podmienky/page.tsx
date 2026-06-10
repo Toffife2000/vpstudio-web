@@ -10,8 +10,8 @@ const sections = [
   {
     title: "1. Poskytovateľ",
     text: [
-      "Poskytovateľom služieb je Aeterna spol. s r.o., Rozmarínova 3238/26, 945 01 Komárno, IČO: 50924010, DIČ: 2120526705, zapísaná v Obchodnom registri Okresného súdu Nitra, oddiel Sro, vložka č. 43381/N.",
-      "Spoločnosť nie je platiteľom DPH. Spoločnosť je registrovaná pre DPH podľa § 7 zákona o DPH.",
+      "Poskytovateľom služieb je D.O.W. Trade, s.r.o., Rozmarínova 3238/26, 945 01 Komárno, IČO: 35864559, DIČ: 2022138987, zapísaná v Obchodnom registri Okresného súdu Nitra, oddiel Sro, vložka č. 17570/N.",
+      "Spoločnosť nie je platiteľom DPH.",
       "Kontaktný e-mail: info@vpstudio.sk."
     ]
   },

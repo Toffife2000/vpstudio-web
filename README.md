@@ -1,6 +1,6 @@
 # VP Studio
 
-Prezentačný web pre VP Studio / Aeterna spol. s r.o.
+Prezentačný web pre VP Studio / D.O.W. Trade, s.r.o.
 
 ## Lokálne spustenie
 

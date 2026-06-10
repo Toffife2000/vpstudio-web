@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   description:
     "VP Studio tvorí moderné webové stránky, e-shopy, SEO nastavenia, Google Merchant riešenia, grafiku a editáciu fotiek pre firmy na Slovensku.",
   applicationName: "VP Studio",
-  authors: [{ name: "Aeterna spol. s r.o.", url: "https://vpstudio.sk" }],
+  authors: [{ name: "D.O.W. Trade, s.r.o.", url: "https://vpstudio.sk" }],
   creator: "VP Studio",
-  publisher: "Aeterna spol. s r.o.",
+  publisher: "D.O.W. Trade, s.r.o.",
   category: "web design, SEO, e-commerce",
   keywords: [
     "tvorba webových stránok",

@@ -3,14 +3,14 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Ochrana osobných údajov | VP Studio",
-  description: "Informácie o spracúvaní osobných údajov spoločnosťou Aeterna spol. s r.o. pri používaní webu VP Studio."
+  description: "Informácie o spracúvaní osobných údajov spoločnosťou D.O.W. Trade, s.r.o. pri používaní webu VP Studio."
 };
 
 const sections = [
   {
     title: "1. Prevádzkovateľ",
     text: [
-      "Prevádzkovateľom osobných údajov je Aeterna spol. s r.o., Rozmarínova 3238/26, 945 01 Komárno, IČO: 50924010, DIČ: 2120526705, zapísaná v Obchodnom registri Okresného súdu Nitra, oddiel Sro, vložka č. 43381/N.",
+      "Prevádzkovateľom osobných údajov je D.O.W. Trade, s.r.o., Rozmarínova 3238/26, 945 01 Komárno, IČO: 35864559, DIČ: 2022138987, zapísaná v Obchodnom registri Okresného súdu Nitra, oddiel Sro, vložka č. 17570/N.",
       "Kontaktný e-mail pre otázky k ochrane osobných údajov: info@vpstudio.sk."
     ]
   },

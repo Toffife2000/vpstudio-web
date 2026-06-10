@@ -181,11 +181,10 @@ export default function Home() {
         "@type": "Organization",
         "@id": "https://vpstudio.sk/#organization",
         name: "VP Studio",
-        legalName: "Aeterna spol. s r.o.",
+        legalName: "D.O.W. Trade, s.r.o.",
         url: "https://vpstudio.sk",
         email: "info@vpstudio.sk",
-        taxID: "50924010",
-        vatID: "SK2120526705",
+        taxID: "35864559",
         sameAs: ["https://sk.linkedin.com/in/viktor-pol%C3%A1k"],
         address: {
           "@type": "PostalAddress",
@@ -209,7 +208,7 @@ export default function Home() {
         "@type": "ProfessionalService",
         "@id": "https://vpstudio.sk/#professional-service",
         name: "VP Studio",
-        legalName: "Aeterna spol. s r.o.",
+        legalName: "D.O.W. Trade, s.r.o.",
         url: "https://vpstudio.sk",
         image: "https://vpstudio.sk/hero-workspace.png",
         email: "info@vpstudio.sk",
@@ -632,13 +631,12 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-sm font-bold text-zinc-500">Firemné údaje</p>
-                    <h3 className="mt-2 text-xl font-black">Aeterna spol. s r.o.</h3>
+                    <h3 className="mt-2 text-xl font-black">D.O.W. Trade, s.r.o.</h3>
                     <div className="mt-4 space-y-1 text-sm font-semibold leading-6 text-zinc-400">
-                      <p>IČO: 50924010</p>
-                      <p>DIČ: 2120526705</p>
+                      <p>IČO: 35864559</p>
+                      <p>DIČ: 2022138987</p>
                       <p>Spoločnosť nie je platiteľom DPH.</p>
-                      <p>Registrovaná pre DPH podľa § 7 zákona o DPH.</p>
-                      <p>ORSR: Okresný súd Nitra, oddiel Sro, vložka č. 43381/N</p>
+                      <p>ORSR: Okresný súd Nitra, oddiel Sro, vložka č. 17570/N</p>
                     </div>
                   </div>
                 </div>
@@ -692,7 +690,7 @@ export default function Home() {
           </div>
 
           <div className="mt-14 flex flex-col gap-4 border-t border-emerald-300/12 pt-8 text-sm font-semibold text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
-            <p>© 2026 VP Studio / Aeterna spol. s r.o. Všetky práva vyhradené.</p>
+            <p>© 2026 VP Studio / D.O.W. Trade, s.r.o. Všetky práva vyhradené.</p>
             <div className="flex flex-wrap gap-x-5 gap-y-2 sm:justify-end">
               <a href="/ochrana-osobnych-udajov" className="transition hover:text-emerald-300">
                 Ochrana osobných údajov

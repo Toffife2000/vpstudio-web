@@ -302,7 +302,7 @@ function htmlSnippet() {
 
   <p><strong>Web:</strong> <a href="${baseUrl}/" target="_blank" rel="noopener">vpstudio-web.vercel.app</a><br><strong>E-mail:</strong> <a href="mailto:info@vpstudio.sk">info@vpstudio.sk</a></p>
 
-  <p>Prev\u00e1dzkovate\u013e: Aeterna spol. s r.o., Rozmar\u00ednova 3238/26, 945 01 Kom\u00e1rno.<br>I\u010cO: 50924010<br>DI\u010c: 2120526705<br>Spolo\u010dnos\u0165 nie je platite\u013eom DPH. Registrovan\u00e1 pod\u013ea \u00a7 7 z\u00e1kona o DPH.</p>
+  <p>Prev\u00e1dzkovate\u013e: D.O.W. Trade, s.r.o., Rozmar\u00ednova 3238/26, 945 01 Kom\u00e1rno.<br>I\u010cO: 35864559<br>DI\u010c: 2022138987<br>Spolo\u010dnos\u0165 nie je platite\u013eom DPH.</p>
 </div>
 `;
 }
@@ -314,7 +314,7 @@ async function main() {
     await fs.writeFile(path.join(outDir, `${card.file}.svg`), data, "utf8");
     await sharp(Buffer.from(data)).resize(card.w, card.h).webp({ quality: 92 }).toFile(path.join(outDir, `${card.file}.webp`));
   }
-  await fs.writeFile(path.join(process.cwd(), "partneri-shoptet-html.html"), htmlSnippet(), "utf8");
+  await fs.writeFile(path.join(process.cwd(), "partneri-shoptet-html.html"), `\uFEFF${htmlSnippet()}`, "utf8");
   await fs.writeFile(
     path.join(outDir, "README.md"),
     [
