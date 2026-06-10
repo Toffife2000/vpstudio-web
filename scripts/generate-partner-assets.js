@@ -4,14 +4,14 @@ const sharp = require("sharp");
 
 const outDir = path.join(process.cwd(), "public", "partneri");
 const baseUrl = "https://vpstudio-web.vercel.app";
-const assetVersion = "v=2";
+const assetVersion = "v=3";
 
 const cards = [
   {
     file: "vp-tvorba-webu",
     w: 800,
     h: 800,
-    title: "Tvorba noveho webu",
+    title: "Novy web",
     kicker: "VP Studio",
     desc: "Premium prezentacia od prveho dojmu po kontakt.",
     accent: "#38bdf8",
@@ -21,8 +21,8 @@ const cards = [
     file: "vp-shoptet-eshop",
     w: 800,
     h: 800,
-    title: "Uprava Shoptet e-shopu",
-    kicker: "Shoptet partner",
+    title: "Shoptet upravy",
+    kicker: "Partner profil",
     desc: "Lepsia struktura, produkty, kategorie a dovera.",
     accent: "#60a5fa",
     icon: "shop"
@@ -31,7 +31,7 @@ const cards = [
     file: "vp-redizajn",
     w: 800,
     h: 800,
-    title: "Redizajn existujucej stranky",
+    title: "Redizajn",
     kicker: "Novy dojem",
     desc: "Ked web potrebuje posobit modernejsie a predajnejsie.",
     accent: "#22d3ee",
@@ -41,7 +41,7 @@ const cards = [
     file: "vp-webdesign",
     w: 1000,
     h: 800,
-    title: "Webdesign a struktura stranky",
+    title: "Webdesign",
     kicker: "Design system",
     desc: "Jasne sekcie, cisty vizual a cesta navstevnika ku kontaktu.",
     accent: "#7dd3fc",
@@ -51,7 +51,7 @@ const cards = [
     file: "vp-eshop-prax",
     w: 1000,
     h: 800,
-    title: "Realna e-shop prax",
+    title: "E-shop prax",
     kicker: "E-commerce",
     desc: "Produkty, nakupny proces, meranie a kazdodenna prevadzka.",
     accent: "#93c5fd",
@@ -61,7 +61,7 @@ const cards = [
     file: "vp-seo",
     w: 800,
     h: 800,
-    title: "SEO texty pre e-shop",
+    title: "SEO texty",
     kicker: "Google ready",
     desc: "Kategorie, produkty a obsah pripraveny pre vyhladavanie.",
     accent: "#38bdf8",
@@ -71,7 +71,7 @@ const cards = [
     file: "vp-google-merchant",
     w: 800,
     h: 800,
-    title: "Google Merchant a feedy",
+    title: "Merchant feedy",
     kicker: "Produktove data",
     desc: "Merchant Center, produktovy feed a kontrola problemov.",
     accent: "#60a5fa",
@@ -81,7 +81,7 @@ const cards = [
     file: "vp-bannery",
     w: 800,
     h: 800,
-    title: "Bannery a produktova grafika",
+    title: "Bannery",
     kicker: "Visual content",
     desc: "Reklamne kreativy, produktove vizualy a grafika pre kampane.",
     accent: "#22d3ee",
@@ -91,7 +91,7 @@ const cards = [
     file: "vp-pravidelna-sprava",
     w: 800,
     h: 800,
-    title: "Pravidelna sprava e-shopu",
+    title: "Sprava e-shopu",
     kicker: "Dlhodoba spolupraca",
     desc: "Upravy, nove sekcie, texty, SEO a grafika podla potreby.",
     accent: "#7dd3fc",
@@ -101,7 +101,7 @@ const cards = [
     file: "vp-cta",
     w: 1400,
     h: 760,
-    title: "Spolocna cesta sa moze zacat, staci napisat!",
+    title: "Ozvite sa",
     kicker: "VP Studio",
     desc: "Weby, Shoptet upravy, SEO, Merchant, bannery a grafika pre znacky, ktore chcu posobit profesionalne.",
     accent: "#38bdf8",
@@ -159,10 +159,10 @@ function cardSvg(card) {
   const { w, h, title, kicker, desc, accent, icon: iconKind } = card;
   const id = card.file.replace(/[^a-z0-9]/g, "");
   const isCta = w > 1200;
-  const titleLines = splitTitle(title, isCta ? 30 : w > 900 ? 22 : 17);
-  const titleSize = isCta ? 74 : w > 900 ? 62 : 58;
-  const titleY = isCta ? 275 : 330;
-  const descY = titleY + titleLines.length * (titleSize * 0.92) + 34;
+  const titleLines = splitTitle(title, isCta ? 18 : w > 900 ? 16 : 12);
+  const titleSize = isCta ? 116 : w > 900 ? 92 : 88;
+  const titleY = isCta ? 335 : 390;
+  const descY = titleY + titleLines.length * (titleSize * 0.92) + (isCta ? 46 : 38);
   const iconSize = isCta ? 112 : 108;
   const iconX = isCta ? w - 230 : w - 186;
   const iconY = isCta ? 118 : 112;

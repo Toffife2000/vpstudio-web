@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="Google Merchant a feedy">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="Merchant feedy">
   <defs>
     <linearGradient id="bg-vpgooglemerchant" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#020617"/><stop offset="0.48" stop-color="#071426"/><stop offset="1" stop-color="#020712"/></linearGradient>
     <radialGradient id="glow-vpgooglemerchant" cx="68%" cy="32%" r="70%"><stop offset="0" stop-color="#60a5fa" stop-opacity="0.55"/><stop offset="0.32" stop-color="#60a5fa" stop-opacity="0.22"/><stop offset="1" stop-color="#60a5fa" stop-opacity="0"/></radialGradient>
     <linearGradient id="line-vpgooglemerchant" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#60a5fa" stop-opacity="0"/><stop offset="0.5" stop-color="#60a5fa" stop-opacity="0.9"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
     <filter id="soft-vpgooglemerchant" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="26" result="blur"/><feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.45  0 0 0 0 1  0 0 0 0.95 0"/></filter>
-    <style>.kicker{font:800 22px Inter,Manrope,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;fill:#60a5fa}.title{font:900 58px Inter,Manrope,Arial,sans-serif;letter-spacing:-.035em;fill:#f8fafc}.desc{font:700 25px Inter,Manrope,Arial,sans-serif;fill:#b9c6d8}.vp{font:900 24px Inter,Manrope,Arial,sans-serif;letter-spacing:.12em;fill:#f8fafc}.micro{font:800 14px Inter,Manrope,Arial,sans-serif;letter-spacing:.24em;fill:#7dd3fc}</style>
+    <style>.kicker{font:800 22px Inter,Manrope,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;fill:#60a5fa}.title{font:900 88px Inter,Manrope,Arial,sans-serif;letter-spacing:-.035em;fill:#f8fafc}.desc{font:700 25px Inter,Manrope,Arial,sans-serif;fill:#b9c6d8}.vp{font:900 24px Inter,Manrope,Arial,sans-serif;letter-spacing:.12em;fill:#f8fafc}.micro{font:800 14px Inter,Manrope,Arial,sans-serif;letter-spacing:.24em;fill:#7dd3fc}</style>
   </defs>
   <rect width="800" height="800" rx="42" fill="url(#bg-vpgooglemerchant)"/>
   <rect width="800" height="800" rx="42" fill="url(#glow-vpgooglemerchant)"/>
@@ -16,9 +16,9 @@
   <rect x="70" y="86" width="208" height="48" rx="24" fill="#071426" stroke="#60a5fa" stroke-opacity="0.3"/>
   <text x="96" y="118" class="kicker">Produktove data</text>
   <g transform="translate(614 112) scale(0.9)" fill="none" stroke="#60a5fa" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 28h14l8 46h50l8-34H40"/><path d="M46 92a8 8 0 1 0 0 1"/><path d="M82 92a8 8 0 1 0 0 1"/><path d="M16 18h16"/></g>
-  <text x="70" y="330" class="title">Google Merchant a</text>
-<text x="70" y="385.1" class="title">feedy</text>
-  <foreignObject x="70" y="470.72" width="650" height="140"><div xmlns="http://www.w3.org/1999/xhtml" style="font:700 25px Inter,Manrope,Arial,sans-serif;line-height:1.38;color:#b9c6d8;">Merchant Center, produktovy feed a kontrola problemov.</div></foreignObject>
+  <text x="70" y="390" class="title">Merchant</text>
+<text x="70" y="473.6" class="title">feedy</text>
+  <foreignObject x="70" y="589.9200000000001" width="650" height="140"><div xmlns="http://www.w3.org/1999/xhtml" style="font:700 25px Inter,Manrope,Arial,sans-serif;line-height:1.38;color:#b9c6d8;">Merchant Center, produktovy feed a kontrola problemov.</div></foreignObject>
   <g transform="translate(70 720)"><rect width="74" height="44" rx="14" fill="#071426" stroke="#60a5fa" stroke-opacity="0.38"/><text x="18" y="29" class="vp">VP</text><text x="92" y="29" class="micro">STUDIO</text></g>
   <rect x="1" y="1" width="798" height="798" rx="42" fill="none" stroke="#bfdbfe" stroke-opacity="0.16"/>
 </svg>
