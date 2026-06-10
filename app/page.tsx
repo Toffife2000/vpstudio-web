@@ -36,6 +36,7 @@ import { HeroNeonSystem } from "./hero-neon-system";
 
 const navItems = [
   { label: "Služby", href: "#sluzby" },
+  { label: "Shoptet", href: "#shoptet" },
   { label: "Konfigurátor", href: "#konfigurator" },
   { label: "Proces", href: "#proces" },
   { label: "Kontakt", href: "#kontakt" }
@@ -111,6 +112,13 @@ const services = [
     icon: Megaphone,
     glow: "neon-rose"
   }
+];
+
+const shoptetHighlights = [
+  "Úpravy a redizajn Shoptet e-shopov",
+  "Produktové popisy, kategórie a SEO štruktúra",
+  "Google Merchant, feedy a Search Console",
+  "Bannery, produktové fotky a dôveryhodný vizuál"
 ];
 
 const process = [
@@ -232,6 +240,8 @@ export default function Home() {
         makesOffer: [
           "Tvorba webových stránok",
           "Tvorba e-shopov",
+          "Úpravy Shoptet e-shopov",
+          "Redizajn Shoptet e-shopov",
           "SEO optimalizácia",
           "Google Search Console",
           "Google Merchant Center",
@@ -354,6 +364,15 @@ export default function Home() {
             <p className="text-sm font-black text-emerald-100">Web + e-shop + SEO + Merchant + Photoshop</p>
           </div>
 
+          <a
+            href="#shoptet"
+            className="neon-card neon-cyan mx-auto mt-5 inline-flex items-center gap-3 rounded-2xl border border-emerald-300/15 bg-white/[0.045] px-4 py-3 shadow-[0_0_42px_rgba(74,222,128,0.12)] backdrop-blur-xl transition hover:-translate-y-1 hover:border-emerald-300/35"
+          >
+            <img src="/badges/shoptet-partner-white.svg" alt="Shoptet partner" className="h-8 w-auto" />
+            <span className="text-sm font-black text-emerald-100">Shoptet partner pre e-shopy</span>
+            <ArrowRight className="h-4 w-4 text-lime-300" />
+          </a>
+
           <div className="mx-auto mt-10 grid max-w-5xl gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {techSignals.map((item) => (
               <div
@@ -383,6 +402,61 @@ export default function Home() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      <section id="shoptet" className="relative px-4 py-20 sm:px-6">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-stretch">
+          <div className="neon-card neon-cyan relative overflow-hidden rounded-[2rem] border border-emerald-300/15 bg-white/[0.035] p-8 shadow-[0_30px_120px_rgba(16,185,129,0.12)] sm:p-10">
+            <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-cyan-300/14 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-28 left-10 h-72 w-72 rounded-full bg-lime-300/12 blur-3xl" />
+            <div className="relative">
+              <div className="inline-flex rounded-2xl border border-white/10 bg-[#08140f]/70 px-5 py-4 shadow-[0_0_52px_rgba(56,189,248,0.14)]">
+                <img src="/badges/shoptet-partner-white.svg" alt="Shoptet partner" className="h-12 w-auto sm:h-14" />
+              </div>
+
+              <h2 className="mt-8 text-4xl font-black leading-tight tracking-tight sm:text-6xl">
+                Shoptet e-shop, ktorý pôsobí ako značka
+              </h2>
+              <p className="mt-6 text-lg font-semibold leading-8 text-zinc-400">
+                VP Studio je Shoptet partner pre úpravy, redizajn a rast e-shopov. Pomôžem ti upratať produkty,
+                kategórie, vizuál, SEO základ aj technické nastavenia tak, aby obchod nepôsobil ako obyčajná šablóna.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="#konfigurator"
+                  className="rgb-action inline-flex min-h-13 items-center justify-center gap-2 rounded-2xl px-6 text-sm font-black text-white transition hover:scale-[1.02]"
+                >
+                  Nakonfigurovať e-shop
+                  <ArrowRight className="h-5 w-5" />
+                </a>
+                <a
+                  href="#kontakt"
+                  className="neon-soft-action inline-flex min-h-13 items-center justify-center rounded-2xl border border-emerald-300/25 bg-white/[0.035] px-6 text-sm font-black text-white transition hover:bg-emerald-300/[0.08]"
+                >
+                  Napísať správu
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {shoptetHighlights.map((item, index) => (
+              <article
+                key={item}
+                className="neon-card group rounded-[1.75rem] border border-emerald-300/12 bg-white/[0.035] p-6 transition hover:-translate-y-1 hover:border-emerald-300/35 hover:bg-emerald-300/[0.045]"
+              >
+                <div className="flex h-13 w-13 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-300 via-emerald-300 to-lime-300 text-[#03110a] shadow-[0_0_34px_rgba(56,189,248,0.24)]">
+                  {index === 0 ? <Rocket className="h-6 w-6" /> : index === 1 ? <Search className="h-6 w-6" /> : index === 2 ? <BarChart3 className="h-6 w-6" /> : <Palette className="h-6 w-6" />}
+                </div>
+                <h3 className="mt-6 text-xl font-black">{item}</h3>
+                <p className="mt-4 text-sm font-semibold leading-7 text-zinc-400">
+                  Praktické riešenie pre obchod, ktorý má byť rýchly, prehľadný, dôveryhodný a pripravený na predaj.
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s | VP Studio"
   },
   description:
-    "VP Studio tvorí moderné webové stránky, e-shopy, SEO nastavenia, Google Merchant riešenia, grafiku a editáciu fotiek pre firmy na Slovensku.",
+    "VP Studio tvorí moderné webové stránky, Shoptet e-shopy, SEO nastavenia, Google Merchant riešenia, grafiku a editáciu fotiek pre firmy na Slovensku.",
   applicationName: "VP Studio",
   authors: [{ name: "D.O.W. Trade, s.r.o.", url: "https://vpstudio.sk" }],
   creator: "VP Studio",
@@ -20,6 +20,10 @@ export const metadata: Metadata = {
     "web dizajn Slovensko",
     "webové stránky na mieru",
     "tvorba e-shopu",
+    "Shoptet partner",
+    "Shoptet e-shop",
+    "úprava Shoptet e-shopu",
+    "redizajn Shoptet",
     "e-shop Slovensko",
     "SEO optimalizácia",
     "technické SEO",
@@ -36,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "VP Studio | Weby, e-shopy, SEO a grafika pre Slovensko",
     description:
-      "Prémiové weby, e-shopy, SEO, Google Merchant a grafika pre značky, ktoré nechcú pôsobiť obyčajne.",
+      "Prémiové weby, Shoptet e-shopy, SEO, Google Merchant a grafika pre značky, ktoré nechcú pôsobiť obyčajne.",
     url: "https://vpstudio.sk",
     siteName: "VP Studio",
     type: "website",
@@ -54,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "VP Studio | Weby, e-shopy, SEO a grafika",
     description:
-      "Weby, e-shopy, SEO nastavenia, Google Merchant, Photoshop a grafika pre Slovensko.",
+      "Weby, Shoptet e-shopy, SEO nastavenia, Google Merchant, Photoshop a grafika pre Slovensko.",
     images: ["/hero-workspace.png"]
   },
   robots: {
