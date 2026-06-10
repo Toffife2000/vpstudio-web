@@ -4,7 +4,7 @@ const sharp = require("sharp");
 
 const outDir = path.join(process.cwd(), "public", "partneri");
 const baseUrl = "https://vpstudio-web.vercel.app";
-const assetVersion = "v=4";
+const assetVersion = "v=5";
 
 const cards = [
   {
@@ -237,9 +237,29 @@ function cardSvg(card) {
 
 function htmlSnippet() {
   const img = (file, alt, href = baseUrl) =>
-    `<a href="${href}" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="${baseUrl}/partneri/${file}.webp?${assetVersion}" alt="${alt}" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;" onerror="this.onerror=null;this.src='${baseUrl}/partneri/${file}.svg?${assetVersion}';"></a>`;
+    `<a class="vp-card-pop" href="${href}" target="_blank" rel="noopener" style="display:block;text-decoration:none;border-radius:16px;transition:transform .42s cubic-bezier(.2,.8,.2,1),filter .42s cubic-bezier(.2,.8,.2,1),box-shadow .42s cubic-bezier(.2,.8,.2,1);will-change:transform,filter;"><img src="${baseUrl}/partneri/${file}.webp?${assetVersion}" alt="${alt}" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;transition:inherit;" onerror="this.onerror=null;this.src='${baseUrl}/partneri/${file}.svg?${assetVersion}';"></a>`;
 
   return `<div class="vp-shoptet-profile" style="max-width:980px;margin:0 auto;font-family:Arial,sans-serif;color:#1f2937;line-height:1.65;">
+  <style>
+    .vp-shoptet-profile .vp-card-pop:hover {
+      transform: translateY(-8px) scale(1.035);
+      filter: saturate(1.14) brightness(1.07);
+      box-shadow: 0 18px 42px rgba(15,95,170,.28), 0 0 0 1px rgba(134,210,255,.46);
+      z-index: 2;
+    }
+    .vp-shoptet-profile .vp-card-pop:hover img {
+      box-shadow: 0 0 34px rgba(91,190,255,.34);
+    }
+    .vp-shoptet-profile .vp-card-pop:active {
+      transform: translateY(-3px) scale(1.015);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .vp-shoptet-profile .vp-card-pop,
+      .vp-shoptet-profile .vp-card-pop img {
+        transition: none !important;
+      }
+    }
+  </style>
   <h2>O mne</h2>
   <p><strong>Ahojte, vol\u00e1m sa Viktor Pol\u00e1k a tvor\u00edm pod zna\u010dkou VP Studio.</strong></p>
 

@@ -1,4 +1,24 @@
 <div class="vp-shoptet-profile" style="max-width:980px;margin:0 auto;font-family:Arial,sans-serif;color:#1f2937;line-height:1.65;">
+  <style>
+    .vp-shoptet-profile .vp-card-pop:hover {
+      transform: translateY(-8px) scale(1.035);
+      filter: saturate(1.14) brightness(1.07);
+      box-shadow: 0 18px 42px rgba(15,95,170,.28), 0 0 0 1px rgba(134,210,255,.46);
+      z-index: 2;
+    }
+    .vp-shoptet-profile .vp-card-pop:hover img {
+      box-shadow: 0 0 34px rgba(91,190,255,.34);
+    }
+    .vp-shoptet-profile .vp-card-pop:active {
+      transform: translateY(-3px) scale(1.015);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .vp-shoptet-profile .vp-card-pop,
+      .vp-shoptet-profile .vp-card-pop img {
+        transition: none !important;
+      }
+    }
+  </style>
   <h2>O mne</h2>
   <p><strong>Ahojte, volám sa Viktor Polák a tvorím pod značkou VP Studio.</strong></p>
 
@@ -10,30 +30,30 @@
   <h3>Nové weby. Shoptet e-shopy. SEO.</h3>
   <p>Pomáham firmám a e-shopom od prvého nápadu až po hotový výsledok. Riešim dizajn, štruktúru stránky, texty, produkty, kategórie, technické úpravy a vizuály pre web aj online kampane.</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:22px 0 34px;">
-    <a href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="https://vpstudio-web.vercel.app/partneri/vp-tvorba-webu.webp?v=4" alt="Tvorba nového webu" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-tvorba-webu.svg?v=4';"></a>
-    <a href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="https://vpstudio-web.vercel.app/partneri/vp-shoptet-eshop.webp?v=4" alt="Úprava Shoptet e-shopu" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-shoptet-eshop.svg?v=4';"></a>
-    <a href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="https://vpstudio-web.vercel.app/partneri/vp-redizajn.webp?v=4" alt="Redizajn existujúcej stránky" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-redizajn.svg?v=4';"></a>
+    <a class="vp-card-pop" href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;border-radius:16px;transition:transform .42s cubic-bezier(.2,.8,.2,1),filter .42s cubic-bezier(.2,.8,.2,1),box-shadow .42s cubic-bezier(.2,.8,.2,1);will-change:transform,filter;"><img src="https://vpstudio-web.vercel.app/partneri/vp-tvorba-webu.webp?v=5" alt="Tvorba nového webu" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;transition:inherit;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-tvorba-webu.svg?v=5';"></a>
+    <a class="vp-card-pop" href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;border-radius:16px;transition:transform .42s cubic-bezier(.2,.8,.2,1),filter .42s cubic-bezier(.2,.8,.2,1),box-shadow .42s cubic-bezier(.2,.8,.2,1);will-change:transform,filter;"><img src="https://vpstudio-web.vercel.app/partneri/vp-shoptet-eshop.webp?v=5" alt="Úprava Shoptet e-shopu" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;transition:inherit;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-shoptet-eshop.svg?v=5';"></a>
+    <a class="vp-card-pop" href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;border-radius:16px;transition:transform .42s cubic-bezier(.2,.8,.2,1),filter .42s cubic-bezier(.2,.8,.2,1),box-shadow .42s cubic-bezier(.2,.8,.2,1);will-change:transform,filter;"><img src="https://vpstudio-web.vercel.app/partneri/vp-redizajn.webp?v=5" alt="Redizajn existujúcej stránky" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;transition:inherit;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-redizajn.svg?v=5';"></a>
   </div>
 
   <h3>Webdesign. Programovanie. Predajný obsah.</h3>
   <p>Mojím cieľom nie je iba pekný dizajn. Web alebo e-shop musí byť prehľadný, rýchly, dôveryhodný a pripravený tak, aby zákazník rýchlo pochopil ponuku a vedel spraviť ďalší krok.</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:22px 0 34px;">
-    <a href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="https://vpstudio-web.vercel.app/partneri/vp-webdesign.webp?v=4" alt="Webdesign a štruktúra stránky" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-webdesign.svg?v=4';"></a>
-    <a href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="https://vpstudio-web.vercel.app/partneri/vp-eshop-prax.webp?v=4" alt="Reálna e-shop prax" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-eshop-prax.svg?v=4';"></a>
+    <a class="vp-card-pop" href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;border-radius:16px;transition:transform .42s cubic-bezier(.2,.8,.2,1),filter .42s cubic-bezier(.2,.8,.2,1),box-shadow .42s cubic-bezier(.2,.8,.2,1);will-change:transform,filter;"><img src="https://vpstudio-web.vercel.app/partneri/vp-webdesign.webp?v=5" alt="Webdesign a štruktúra stránky" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;transition:inherit;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-webdesign.svg?v=5';"></a>
+    <a class="vp-card-pop" href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;border-radius:16px;transition:transform .42s cubic-bezier(.2,.8,.2,1),filter .42s cubic-bezier(.2,.8,.2,1),box-shadow .42s cubic-bezier(.2,.8,.2,1);will-change:transform,filter;"><img src="https://vpstudio-web.vercel.app/partneri/vp-eshop-prax.webp?v=5" alt="Reálna e-shop prax" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;transition:inherit;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-eshop-prax.svg?v=5';"></a>
   </div>
 
   <h3>SEO. Google. Produktové fotky. Bannery.</h3>
   <p>Okrem webov riešim aj praktické veci, ktoré e-shop potrebuje každý deň: SEO popisy, Google Merchant Center, Search Console, produktové obrázky, reklamné bannery a úpravy grafiky pre kampane.</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:22px 0 34px;">
-    <a href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="https://vpstudio-web.vercel.app/partneri/vp-seo.webp?v=4" alt="SEO texty pre e-shop" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-seo.svg?v=4';"></a>
-    <a href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="https://vpstudio-web.vercel.app/partneri/vp-google-merchant.webp?v=4" alt="Google Merchant a feedy" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-google-merchant.svg?v=4';"></a>
-    <a href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="https://vpstudio-web.vercel.app/partneri/vp-bannery.webp?v=4" alt="Bannery a produktová grafika" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-bannery.svg?v=4';"></a>
+    <a class="vp-card-pop" href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;border-radius:16px;transition:transform .42s cubic-bezier(.2,.8,.2,1),filter .42s cubic-bezier(.2,.8,.2,1),box-shadow .42s cubic-bezier(.2,.8,.2,1);will-change:transform,filter;"><img src="https://vpstudio-web.vercel.app/partneri/vp-seo.webp?v=5" alt="SEO texty pre e-shop" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;transition:inherit;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-seo.svg?v=5';"></a>
+    <a class="vp-card-pop" href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;border-radius:16px;transition:transform .42s cubic-bezier(.2,.8,.2,1),filter .42s cubic-bezier(.2,.8,.2,1),box-shadow .42s cubic-bezier(.2,.8,.2,1);will-change:transform,filter;"><img src="https://vpstudio-web.vercel.app/partneri/vp-google-merchant.webp?v=5" alt="Google Merchant a feedy" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;transition:inherit;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-google-merchant.svg?v=5';"></a>
+    <a class="vp-card-pop" href="https://vpstudio-web.vercel.app" target="_blank" rel="noopener" style="display:block;text-decoration:none;border-radius:16px;transition:transform .42s cubic-bezier(.2,.8,.2,1),filter .42s cubic-bezier(.2,.8,.2,1),box-shadow .42s cubic-bezier(.2,.8,.2,1);will-change:transform,filter;"><img src="https://vpstudio-web.vercel.app/partneri/vp-bannery.webp?v=5" alt="Bannery a produktová grafika" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;transition:inherit;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-bannery.svg?v=5';"></a>
   </div>
 
   <h3>Pravidelná spolupráca.</h3>
   <p>Viem pomôcť jednorazovo s konkrétnou úpravou, ale aj dlhodobo pri rozvoji webu alebo e-shopu. Najčastejšie riešim úpravy Shoptetu, nové sekcie, popisy produktov, kategórie, grafiku, SEO a technické doladenie.</p>
   <div style="margin:22px 0 34px;">
-    <a href="https://vpstudio-web.vercel.app/#kontakt" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="https://vpstudio-web.vercel.app/partneri/vp-cta.webp?v=4" alt="Spoločná cesta sa môže začať, stačí napísať!" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-cta.svg?v=4';"></a>
+    <a class="vp-card-pop" href="https://vpstudio-web.vercel.app/#kontakt" target="_blank" rel="noopener" style="display:block;text-decoration:none;border-radius:16px;transition:transform .42s cubic-bezier(.2,.8,.2,1),filter .42s cubic-bezier(.2,.8,.2,1),box-shadow .42s cubic-bezier(.2,.8,.2,1);will-change:transform,filter;"><img src="https://vpstudio-web.vercel.app/partneri/vp-cta.webp?v=5" alt="Spoločná cesta sa môže začať, stačí napísať!" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;transition:inherit;" onerror="this.onerror=null;this.src='https://vpstudio-web.vercel.app/partneri/vp-cta.svg?v=5';"></a>
   </div>
 
   <h3>Profil</h3>
