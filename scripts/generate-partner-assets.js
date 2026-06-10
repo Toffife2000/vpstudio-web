@@ -4,15 +4,16 @@ const sharp = require("sharp");
 
 const outDir = path.join(process.cwd(), "public", "partneri");
 const baseUrl = "https://vpstudio-web.vercel.app";
+const assetVersion = "v=2";
 
 const cards = [
   {
     file: "vp-tvorba-webu",
     w: 800,
     h: 800,
-    title: "Tvorba nov\u00e9ho webu",
+    title: "Tvorba noveho webu",
     kicker: "VP Studio",
-    desc: "Pr\u00e9miov\u00e1 prezent\u00e1cia od prv\u00e9ho dojmu po kontakt.",
+    desc: "Premium prezentacia od prveho dojmu po kontakt.",
     accent: "#38bdf8",
     icon: "web"
   },
@@ -20,9 +21,9 @@ const cards = [
     file: "vp-shoptet-eshop",
     w: 800,
     h: 800,
-    title: "\u00daprava Shoptet e-shopu",
+    title: "Uprava Shoptet e-shopu",
     kicker: "Shoptet partner",
-    desc: "Lep\u0161ia \u0161trukt\u00fara, produkty, kateg\u00f3rie a d\u00f4vera.",
+    desc: "Lepsia struktura, produkty, kategorie a dovera.",
     accent: "#60a5fa",
     icon: "shop"
   },
@@ -30,9 +31,9 @@ const cards = [
     file: "vp-redizajn",
     w: 800,
     h: 800,
-    title: "Redizajn existuj\u00facej str\u00e1nky",
-    kicker: "Nov\u00fd dojem",
-    desc: "Ke\u010f web potrebuje p\u00f4sobi\u0165 modernej\u0161ie a predajnej\u0161ie.",
+    title: "Redizajn existujucej stranky",
+    kicker: "Novy dojem",
+    desc: "Ked web potrebuje posobit modernejsie a predajnejsie.",
     accent: "#22d3ee",
     icon: "redesign"
   },
@@ -40,9 +41,9 @@ const cards = [
     file: "vp-webdesign",
     w: 1000,
     h: 800,
-    title: "Webdesign a \u0161trukt\u00fara str\u00e1nky",
+    title: "Webdesign a struktura stranky",
     kicker: "Design system",
-    desc: "Jasn\u00e9 sekcie, \u010dist\u00fd vizu\u00e1l a cesta n\u00e1v\u0161tevn\u00edka ku kontaktu.",
+    desc: "Jasne sekcie, cisty vizual a cesta navstevnika ku kontaktu.",
     accent: "#7dd3fc",
     icon: "design"
   },
@@ -50,9 +51,9 @@ const cards = [
     file: "vp-eshop-prax",
     w: 1000,
     h: 800,
-    title: "Re\u00e1lna e-shop prax",
+    title: "Realna e-shop prax",
     kicker: "E-commerce",
-    desc: "Produkty, n\u00e1kupn\u00fd proces, meranie a ka\u017edodenn\u00e1 prev\u00e1dzka.",
+    desc: "Produkty, nakupny proces, meranie a kazdodenna prevadzka.",
     accent: "#93c5fd",
     icon: "practice"
   },
@@ -62,7 +63,7 @@ const cards = [
     h: 800,
     title: "SEO texty pre e-shop",
     kicker: "Google ready",
-    desc: "Kateg\u00f3rie, produkty a obsah pripraven\u00fd pre vyh\u013ead\u00e1vanie.",
+    desc: "Kategorie, produkty a obsah pripraveny pre vyhladavanie.",
     accent: "#38bdf8",
     icon: "seo"
   },
@@ -71,8 +72,8 @@ const cards = [
     w: 800,
     h: 800,
     title: "Google Merchant a feedy",
-    kicker: "Produktov\u00e9 d\u00e1ta",
-    desc: "Merchant Center, produktov\u00fd feed a kontrola probl\u00e9mov.",
+    kicker: "Produktove data",
+    desc: "Merchant Center, produktovy feed a kontrola problemov.",
     accent: "#60a5fa",
     icon: "merchant"
   },
@@ -80,9 +81,9 @@ const cards = [
     file: "vp-bannery",
     w: 800,
     h: 800,
-    title: "Bannery a produktov\u00e1 grafika",
+    title: "Bannery a produktova grafika",
     kicker: "Visual content",
-    desc: "Reklamn\u00e9 kreat\u00edvy, produktov\u00e9 vizu\u00e1ly a grafika pre kampane.",
+    desc: "Reklamne kreativy, produktove vizualy a grafika pre kampane.",
     accent: "#22d3ee",
     icon: "banners"
   },
@@ -90,9 +91,9 @@ const cards = [
     file: "vp-pravidelna-sprava",
     w: 800,
     h: 800,
-    title: "Pravideln\u00e1 spr\u00e1va e-shopu",
-    kicker: "Dlhodob\u00e1 spolupr\u00e1ca",
-    desc: "\u00dapravy, nov\u00e9 sekcie, texty, SEO a grafika pod\u013ea potreby.",
+    title: "Pravidelna sprava e-shopu",
+    kicker: "Dlhodoba spolupraca",
+    desc: "Upravy, nove sekcie, texty, SEO a grafika podla potreby.",
     accent: "#7dd3fc",
     icon: "care"
   },
@@ -100,9 +101,9 @@ const cards = [
     file: "vp-cta",
     w: 1400,
     h: 760,
-    title: "Spolo\u010dn\u00e1 cesta sa m\u00f4\u017ee za\u010da\u0165, sta\u010d\u00ed nap\u00edsa\u0165!",
+    title: "Spolocna cesta sa moze zacat, staci napisat!",
     kicker: "VP Studio",
-    desc: "Weby, Shoptet \u00fapravy, SEO, Merchant, bannery a grafika pre zna\u010dky, ktor\u00e9 chc\u00fa p\u00f4sobi\u0165 profesion\u00e1lne.",
+    desc: "Weby, Shoptet upravy, SEO, Merchant, bannery a grafika pre znacky, ktore chcu posobit profesionalne.",
     accent: "#38bdf8",
     icon: "cta"
   }
@@ -196,7 +197,7 @@ function cardSvg(card) {
 
 function htmlSnippet() {
   const img = (file, alt, href = baseUrl) =>
-    `<a href="${href}" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="${baseUrl}/partneri/${file}.webp" alt="${alt}" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;" onerror="this.onerror=null;this.src='${baseUrl}/partneri/${file}.svg';"></a>`;
+    `<a href="${href}" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="${baseUrl}/partneri/${file}.webp?${assetVersion}" alt="${alt}" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;border:0;" onerror="this.onerror=null;this.src='${baseUrl}/partneri/${file}.svg?${assetVersion}';"></a>`;
 
   return `<div class="vp-shoptet-profile" style="max-width:980px;margin:0 auto;font-family:Arial,sans-serif;color:#1f2937;line-height:1.65;">
   <h2>O mne</h2>
