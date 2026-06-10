@@ -4,14 +4,14 @@ const sharp = require("sharp");
 
 const outDir = path.join(process.cwd(), "public", "partneri");
 const baseUrl = "https://vpstudio-web.vercel.app";
-const assetVersion = "v=3";
+const assetVersion = "v=4";
 
 const cards = [
   {
     file: "vp-tvorba-webu",
     w: 800,
     h: 800,
-    title: "Novy web",
+    title: "Tvorba noveho webu",
     kicker: "VP Studio",
     desc: "Premium prezentacia od prveho dojmu po kontakt.",
     accent: "#38bdf8",
@@ -21,8 +21,8 @@ const cards = [
     file: "vp-shoptet-eshop",
     w: 800,
     h: 800,
-    title: "Shoptet upravy",
-    kicker: "Partner profil",
+    title: "Migracia e-shopu na Shoptet",
+    kicker: "Shoptet partner",
     desc: "Lepsia struktura, produkty, kategorie a dovera.",
     accent: "#60a5fa",
     icon: "shop"
@@ -31,7 +31,7 @@ const cards = [
     file: "vp-redizajn",
     w: 800,
     h: 800,
-    title: "Redizajn",
+    title: "Redizajn existujuceho webu",
     kicker: "Novy dojem",
     desc: "Ked web potrebuje posobit modernejsie a predajnejsie.",
     accent: "#22d3ee",
@@ -41,8 +41,8 @@ const cards = [
     file: "vp-webdesign",
     w: 1000,
     h: 800,
-    title: "Webdesign",
-    kicker: "Design system",
+    title: "Programovanie",
+    kicker: "Vyvoj",
     desc: "Jasne sekcie, cisty vizual a cesta navstevnika ku kontaktu.",
     accent: "#7dd3fc",
     icon: "design"
@@ -51,8 +51,8 @@ const cards = [
     file: "vp-eshop-prax",
     w: 1000,
     h: 800,
-    title: "E-shop prax",
-    kicker: "E-commerce",
+    title: "Design",
+    kicker: "Webdesign",
     desc: "Produkty, nakupny proces, meranie a kazdodenna prevadzka.",
     accent: "#93c5fd",
     icon: "practice"
@@ -61,7 +61,7 @@ const cards = [
     file: "vp-seo",
     w: 800,
     h: 800,
-    title: "SEO texty",
+    title: "SEO texty pre e-shop",
     kicker: "Google ready",
     desc: "Kategorie, produkty a obsah pripraveny pre vyhladavanie.",
     accent: "#38bdf8",
@@ -71,7 +71,7 @@ const cards = [
     file: "vp-google-merchant",
     w: 800,
     h: 800,
-    title: "Merchant feedy",
+    title: "Google Merchant",
     kicker: "Produktove data",
     desc: "Merchant Center, produktovy feed a kontrola problemov.",
     accent: "#60a5fa",
@@ -81,7 +81,7 @@ const cards = [
     file: "vp-bannery",
     w: 800,
     h: 800,
-    title: "Bannery",
+    title: "Bannery a grafika",
     kicker: "Visual content",
     desc: "Reklamne kreativy, produktove vizualy a grafika pre kampane.",
     accent: "#22d3ee",
@@ -91,7 +91,7 @@ const cards = [
     file: "vp-pravidelna-sprava",
     w: 800,
     h: 800,
-    title: "Sprava e-shopu",
+    title: "Pravidelny servis",
     kicker: "Dlhodoba spolupraca",
     desc: "Upravy, nove sekcie, texty, SEO a grafika podla potreby.",
     accent: "#7dd3fc",
@@ -155,17 +155,56 @@ function icon(kind, x, y, size, color) {
   return `<g transform="translate(${x} ${y}) scale(${size / 120})" ${common}><path d="M28 36l-20 24 20 24"/><path d="M92 36l20 24-20 24"/><path d="M72 20L48 100"/></g>`;
 }
 
+function scene(kind, w, h, accent) {
+  const a = escapeXml(accent);
+  const laptop = `<g transform="translate(${w * 0.42} ${h * 0.36}) rotate(-11)" opacity="0.72">
+    <rect x="0" y="0" width="${w * 0.5}" height="${h * 0.28}" rx="18" fill="#071426" stroke="${a}" stroke-opacity="0.18"/>
+    <rect x="22" y="24" width="${w * 0.42}" height="${h * 0.19}" rx="10" fill="#020617" stroke="#7dd3fc" stroke-opacity="0.12"/>
+    ${Array.from({ length: 12 }, (_, i) => `<path d="M${44 + i * 24} 52h${35 + (i % 3) * 20}" stroke="${a}" stroke-opacity="${0.2 + (i % 3) * 0.06}" stroke-width="3"/>`).join("")}
+    <path d="M-26 ${h * 0.31}H${w * 0.54}" stroke="#bfdbfe" stroke-opacity="0.2" stroke-width="18" stroke-linecap="round"/>
+  </g>`;
+  const phone = `<g transform="translate(${w * 0.66} ${h * 0.26}) rotate(10)" opacity="0.6">
+    <rect width="${w * 0.17}" height="${h * 0.36}" rx="22" fill="#061220" stroke="${a}" stroke-opacity="0.24"/>
+    <rect x="14" y="34" width="${w * 0.13}" height="${h * 0.25}" rx="10" fill="#020617"/>
+    <path d="M34 72h70M34 102h52M34 132h74" stroke="${a}" stroke-opacity="0.28" stroke-width="5" stroke-linecap="round"/>
+  </g>`;
+  const product = `<g transform="translate(${w * 0.58} ${h * 0.28})" opacity="0.55">
+    <ellipse cx="95" cy="245" rx="145" ry="32" fill="#020617" opacity="0.72"/>
+    <rect x="60" y="42" width="110" height="210" rx="28" fill="#082033" stroke="${a}" stroke-opacity="0.2"/>
+    <rect x="86" y="18" width="60" height="52" rx="14" fill="#0f2a44"/>
+    <path d="M46 120c68-22 116-18 178 14" stroke="${a}" stroke-opacity="0.22" stroke-width="8" fill="none"/>
+  </g>`;
+  const palette = `<g transform="translate(${w * 0.53} ${h * 0.27}) rotate(-8)" opacity="0.66">
+    <rect width="${w * 0.42}" height="${h * 0.33}" rx="24" fill="#071426" stroke="${a}" stroke-opacity="0.18"/>
+    <circle cx="150" cy="120" r="72" fill="#f97316" opacity="0.76"/>
+    <path d="M150 48a72 72 0 0 1 70 90l-70-18z" fill="#fde047" opacity="0.86"/>
+    <path d="M150 120l-64 34a72 72 0 0 1 64-106z" fill="#a855f7" opacity="0.82"/>
+    <circle cx="150" cy="120" r="28" fill="#020617"/>
+  </g>`;
+  const chart = `<g transform="translate(${w * 0.54} ${h * 0.33}) rotate(-7)" opacity="0.62">
+    <rect width="${w * 0.36}" height="${h * 0.27}" rx="22" fill="#071426" stroke="${a}" stroke-opacity="0.2"/>
+    <path d="M48 170V92M104 170V54M160 170v-42M216 170V74" stroke="${a}" stroke-opacity="0.65" stroke-width="14" stroke-linecap="round"/>
+    <path d="M42 190h230" stroke="#bfdbfe" stroke-opacity="0.16" stroke-width="4"/>
+  </g>`;
+  if (kind === "design" || kind === "banners") return palette;
+  if (kind === "practice" || kind === "shop") return laptop + phone;
+  if (kind === "merchant" || kind === "seo" || kind === "care") return chart;
+  if (kind === "redesign") return laptop;
+  if (kind === "cta") return laptop + chart;
+  return laptop + phone;
+}
+
 function cardSvg(card) {
   const { w, h, title, kicker, desc, accent, icon: iconKind } = card;
   const id = card.file.replace(/[^a-z0-9]/g, "");
   const isCta = w > 1200;
-  const titleLines = splitTitle(title, isCta ? 18 : w > 900 ? 16 : 12);
-  const titleSize = isCta ? 116 : w > 900 ? 92 : 88;
-  const titleY = isCta ? 335 : 390;
-  const descY = titleY + titleLines.length * (titleSize * 0.92) + (isCta ? 46 : 38);
-  const iconSize = isCta ? 112 : 108;
-  const iconX = isCta ? w - 230 : w - 186;
-  const iconY = isCta ? 118 : 112;
+  const titleLines = splitTitle(title, isCta ? 22 : w > 900 ? 15 : 14);
+  const titleSize = isCta ? 84 : w > 900 ? 54 : 48;
+  const titleY = isCta ? 250 : w > 900 ? 178 : 200;
+  const descY = titleY + titleLines.length * (titleSize * 0.96) + (isCta ? 42 : 30);
+  const iconSize = isCta ? 118 : w > 900 ? 126 : 76;
+  const iconX = isCta ? w - 225 : w > 900 ? 78 : w - 132;
+  const iconY = isCta ? 110 : w > 900 ? h - 190 : h - 142;
   const titleText = titleLines
     .map((line, index) => `<text x="${isCta ? 92 : 70}" y="${titleY + index * titleSize * 0.95}" class="title">${escapeXml(line)}</text>`)
     .join("\n");
@@ -176,20 +215,21 @@ function cardSvg(card) {
     <radialGradient id="glow-${id}" cx="68%" cy="32%" r="70%"><stop offset="0" stop-color="${accent}" stop-opacity="0.55"/><stop offset="0.32" stop-color="${accent}" stop-opacity="0.22"/><stop offset="1" stop-color="${accent}" stop-opacity="0"/></radialGradient>
     <linearGradient id="line-${id}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${accent}" stop-opacity="0"/><stop offset="0.5" stop-color="${accent}" stop-opacity="0.9"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
     <filter id="soft-${id}" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="26" result="blur"/><feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.45  0 0 0 0 1  0 0 0 0.95 0"/></filter>
-    <style>.kicker{font:800 ${isCta ? 24 : 22}px Inter,Manrope,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;fill:${accent}}.title{font:900 ${titleSize}px Inter,Manrope,Arial,sans-serif;letter-spacing:-.035em;fill:#f8fafc}.desc{font:700 ${isCta ? 28 : 25}px Inter,Manrope,Arial,sans-serif;fill:#b9c6d8}.vp{font:900 ${isCta ? 26 : 24}px Inter,Manrope,Arial,sans-serif;letter-spacing:.12em;fill:#f8fafc}.micro{font:800 ${isCta ? 16 : 14}px Inter,Manrope,Arial,sans-serif;letter-spacing:.24em;fill:#7dd3fc}</style>
+    <style>.kicker{font:800 ${isCta ? 24 : 20}px Inter,Manrope,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;fill:${accent}}.title{font:700 ${titleSize}px Inter,Manrope,Arial,sans-serif;letter-spacing:-.045em;fill:#f8fafc}.desc{font:700 ${isCta ? 27 : 23}px Inter,Manrope,Arial,sans-serif;fill:#b9c6d8}.vp{font:900 ${isCta ? 26 : 24}px Inter,Manrope,Arial,sans-serif;letter-spacing:.12em;fill:#f8fafc}.micro{font:800 ${isCta ? 16 : 14}px Inter,Manrope,Arial,sans-serif;letter-spacing:.24em;fill:#7dd3fc}</style>
   </defs>
   <rect width="${w}" height="${h}" rx="42" fill="url(#bg-${id})"/>
   <rect width="${w}" height="${h}" rx="42" fill="url(#glow-${id})"/>
   <g opacity="0.18">${Array.from({ length: Math.ceil(w / 80) + 1 }, (_, i) => `<path d="M${i * 80} 0V${h}" stroke="#7dd3fc" stroke-opacity="0.25"/>`).join("")}${Array.from({ length: Math.ceil(h / 80) + 1 }, (_, i) => `<path d="M0 ${i * 80}H${w}" stroke="#7dd3fc" stroke-opacity="0.22"/>`).join("")}</g>
   <circle cx="${w * 0.72}" cy="${h * 0.34}" r="${Math.min(w, h) * 0.34}" fill="${accent}" opacity="0.18" filter="url(#soft-${id})"/>
   <circle cx="${w * 0.82}" cy="${h * 0.15}" r="${Math.min(w, h) * 0.16}" fill="#ffffff" opacity="0.08" filter="url(#soft-${id})"/>
+  ${scene(iconKind, w, h, accent)}
   <path d="M${w * 0.1} ${h * 0.72}C${w * 0.32} ${h * 0.58} ${w * 0.5} ${h * 0.88} ${w * 0.9} ${h * 0.62}" stroke="${accent}" stroke-opacity="0.28" stroke-width="2" fill="none"/>
   <path d="M${w * 0.16} ${h * 0.17}H${w * 0.55}" stroke="url(#line-${id})" stroke-width="2"/>
   <rect x="${isCta ? 92 : 70}" y="${isCta ? 102 : 86}" width="${isCta ? 232 : 208}" height="48" rx="24" fill="#071426" stroke="${accent}" stroke-opacity="0.3"/>
   <text x="${isCta ? 120 : 96}" y="${isCta ? 134 : 118}" class="kicker">${escapeXml(kicker)}</text>
   ${icon(iconKind, iconX, iconY, iconSize, accent)}
   ${titleText}
-  <foreignObject x="${isCta ? 92 : 70}" y="${descY}" width="${isCta ? 770 : w - 150}" height="${isCta ? 110 : 140}"><div xmlns="http://www.w3.org/1999/xhtml" style="font:700 ${isCta ? 28 : 25}px Inter,Manrope,Arial,sans-serif;line-height:1.38;color:#b9c6d8;">${escapeXml(desc)}</div></foreignObject>
+  <foreignObject x="${isCta ? 92 : 70}" y="${descY}" width="${isCta ? 780 : w > 900 ? 430 : w - 150}" height="${isCta ? 110 : 140}"><div xmlns="http://www.w3.org/1999/xhtml" style="font:700 ${isCta ? 27 : 23}px Inter,Manrope,Arial,sans-serif;line-height:1.38;color:#b9c6d8;">${escapeXml(desc)}</div></foreignObject>
   <g transform="translate(${isCta ? 92 : 70} ${h - (isCta ? 86 : 80)})"><rect width="74" height="44" rx="14" fill="#071426" stroke="${accent}" stroke-opacity="0.38"/><text x="18" y="29" class="vp">VP</text><text x="92" y="29" class="micro">STUDIO</text></g>
   <rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="42" fill="none" stroke="#bfdbfe" stroke-opacity="0.16"/>
 </svg>`;

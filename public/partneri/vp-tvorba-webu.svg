@@ -1,23 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="Novy web">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="Tvorba noveho webu">
   <defs>
     <linearGradient id="bg-vptvorbawebu" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#020617"/><stop offset="0.48" stop-color="#071426"/><stop offset="1" stop-color="#020712"/></linearGradient>
     <radialGradient id="glow-vptvorbawebu" cx="68%" cy="32%" r="70%"><stop offset="0" stop-color="#38bdf8" stop-opacity="0.55"/><stop offset="0.32" stop-color="#38bdf8" stop-opacity="0.22"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></radialGradient>
     <linearGradient id="line-vptvorbawebu" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38bdf8" stop-opacity="0"/><stop offset="0.5" stop-color="#38bdf8" stop-opacity="0.9"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
     <filter id="soft-vptvorbawebu" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="26" result="blur"/><feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.45  0 0 0 0 1  0 0 0 0.95 0"/></filter>
-    <style>.kicker{font:800 22px Inter,Manrope,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;fill:#38bdf8}.title{font:900 88px Inter,Manrope,Arial,sans-serif;letter-spacing:-.035em;fill:#f8fafc}.desc{font:700 25px Inter,Manrope,Arial,sans-serif;fill:#b9c6d8}.vp{font:900 24px Inter,Manrope,Arial,sans-serif;letter-spacing:.12em;fill:#f8fafc}.micro{font:800 14px Inter,Manrope,Arial,sans-serif;letter-spacing:.24em;fill:#7dd3fc}</style>
+    <style>.kicker{font:800 20px Inter,Manrope,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;fill:#38bdf8}.title{font:700 48px Inter,Manrope,Arial,sans-serif;letter-spacing:-.045em;fill:#f8fafc}.desc{font:700 23px Inter,Manrope,Arial,sans-serif;fill:#b9c6d8}.vp{font:900 24px Inter,Manrope,Arial,sans-serif;letter-spacing:.12em;fill:#f8fafc}.micro{font:800 14px Inter,Manrope,Arial,sans-serif;letter-spacing:.24em;fill:#7dd3fc}</style>
   </defs>
   <rect width="800" height="800" rx="42" fill="url(#bg-vptvorbawebu)"/>
   <rect width="800" height="800" rx="42" fill="url(#glow-vptvorbawebu)"/>
   <g opacity="0.18"><path d="M0 0V800" stroke="#7dd3fc" stroke-opacity="0.25"/><path d="M80 0V800" stroke="#7dd3fc" stroke-opacity="0.25"/><path d="M160 0V800" stroke="#7dd3fc" stroke-opacity="0.25"/><path d="M240 0V800" stroke="#7dd3fc" stroke-opacity="0.25"/><path d="M320 0V800" stroke="#7dd3fc" stroke-opacity="0.25"/><path d="M400 0V800" stroke="#7dd3fc" stroke-opacity="0.25"/><path d="M480 0V800" stroke="#7dd3fc" stroke-opacity="0.25"/><path d="M560 0V800" stroke="#7dd3fc" stroke-opacity="0.25"/><path d="M640 0V800" stroke="#7dd3fc" stroke-opacity="0.25"/><path d="M720 0V800" stroke="#7dd3fc" stroke-opacity="0.25"/><path d="M800 0V800" stroke="#7dd3fc" stroke-opacity="0.25"/><path d="M0 0H800" stroke="#7dd3fc" stroke-opacity="0.22"/><path d="M0 80H800" stroke="#7dd3fc" stroke-opacity="0.22"/><path d="M0 160H800" stroke="#7dd3fc" stroke-opacity="0.22"/><path d="M0 240H800" stroke="#7dd3fc" stroke-opacity="0.22"/><path d="M0 320H800" stroke="#7dd3fc" stroke-opacity="0.22"/><path d="M0 400H800" stroke="#7dd3fc" stroke-opacity="0.22"/><path d="M0 480H800" stroke="#7dd3fc" stroke-opacity="0.22"/><path d="M0 560H800" stroke="#7dd3fc" stroke-opacity="0.22"/><path d="M0 640H800" stroke="#7dd3fc" stroke-opacity="0.22"/><path d="M0 720H800" stroke="#7dd3fc" stroke-opacity="0.22"/><path d="M0 800H800" stroke="#7dd3fc" stroke-opacity="0.22"/></g>
   <circle cx="576" cy="272" r="272" fill="#38bdf8" opacity="0.18" filter="url(#soft-vptvorbawebu)"/>
   <circle cx="656" cy="120" r="128" fill="#ffffff" opacity="0.08" filter="url(#soft-vptvorbawebu)"/>
+  <g transform="translate(336 288) rotate(-11)" opacity="0.72">
+    <rect x="0" y="0" width="400" height="224.00000000000003" rx="18" fill="#071426" stroke="#38bdf8" stroke-opacity="0.18"/>
+    <rect x="22" y="24" width="336" height="152" rx="10" fill="#020617" stroke="#7dd3fc" stroke-opacity="0.12"/>
+    <path d="M44 52h35" stroke="#38bdf8" stroke-opacity="0.2" stroke-width="3"/><path d="M68 52h55" stroke="#38bdf8" stroke-opacity="0.26" stroke-width="3"/><path d="M92 52h75" stroke="#38bdf8" stroke-opacity="0.32" stroke-width="3"/><path d="M116 52h35" stroke="#38bdf8" stroke-opacity="0.2" stroke-width="3"/><path d="M140 52h55" stroke="#38bdf8" stroke-opacity="0.26" stroke-width="3"/><path d="M164 52h75" stroke="#38bdf8" stroke-opacity="0.32" stroke-width="3"/><path d="M188 52h35" stroke="#38bdf8" stroke-opacity="0.2" stroke-width="3"/><path d="M212 52h55" stroke="#38bdf8" stroke-opacity="0.26" stroke-width="3"/><path d="M236 52h75" stroke="#38bdf8" stroke-opacity="0.32" stroke-width="3"/><path d="M260 52h35" stroke="#38bdf8" stroke-opacity="0.2" stroke-width="3"/><path d="M284 52h55" stroke="#38bdf8" stroke-opacity="0.26" stroke-width="3"/><path d="M308 52h75" stroke="#38bdf8" stroke-opacity="0.32" stroke-width="3"/>
+    <path d="M-26 248H432" stroke="#bfdbfe" stroke-opacity="0.2" stroke-width="18" stroke-linecap="round"/>
+  </g><g transform="translate(528 208) rotate(10)" opacity="0.6">
+    <rect width="136" height="288" rx="22" fill="#061220" stroke="#38bdf8" stroke-opacity="0.24"/>
+    <rect x="14" y="34" width="104" height="200" rx="10" fill="#020617"/>
+    <path d="M34 72h70M34 102h52M34 132h74" stroke="#38bdf8" stroke-opacity="0.28" stroke-width="5" stroke-linecap="round"/>
+  </g>
   <path d="M80 576C256 463.99999999999994 400 704 720 496" stroke="#38bdf8" stroke-opacity="0.28" stroke-width="2" fill="none"/>
   <path d="M128 136H440.00000000000006" stroke="url(#line-vptvorbawebu)" stroke-width="2"/>
   <rect x="70" y="86" width="208" height="48" rx="24" fill="#071426" stroke="#38bdf8" stroke-opacity="0.3"/>
   <text x="96" y="118" class="kicker">VP Studio</text>
-  <g transform="translate(614 112) scale(0.9)" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M28 36l-20 24 20 24"/><path d="M92 36l20 24-20 24"/><path d="M72 20L48 100"/></g>
-  <text x="70" y="390" class="title">Novy web</text>
-  <foreignObject x="70" y="508.96000000000004" width="650" height="140"><div xmlns="http://www.w3.org/1999/xhtml" style="font:700 25px Inter,Manrope,Arial,sans-serif;line-height:1.38;color:#b9c6d8;">Premium prezentacia od prveho dojmu po kontakt.</div></foreignObject>
+  <g transform="translate(668 658) scale(0.6333333333333333)" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M28 36l-20 24 20 24"/><path d="M92 36l20 24-20 24"/><path d="M72 20L48 100"/></g>
+  <text x="70" y="200" class="title">Tvorba noveho</text>
+<text x="70" y="245.6" class="title">webu</text>
+  <foreignObject x="70" y="322.15999999999997" width="650" height="140"><div xmlns="http://www.w3.org/1999/xhtml" style="font:700 23px Inter,Manrope,Arial,sans-serif;line-height:1.38;color:#b9c6d8;">Premium prezentacia od prveho dojmu po kontakt.</div></foreignObject>
   <g transform="translate(70 720)"><rect width="74" height="44" rx="14" fill="#071426" stroke="#38bdf8" stroke-opacity="0.38"/><text x="18" y="29" class="vp">VP</text><text x="92" y="29" class="micro">STUDIO</text></g>
   <rect x="1" y="1" width="798" height="798" rx="42" fill="none" stroke="#bfdbfe" stroke-opacity="0.16"/>
 </svg>
